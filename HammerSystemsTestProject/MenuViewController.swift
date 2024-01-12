@@ -18,7 +18,7 @@ class MenuViewController: UIViewController {
 
 private extension MenuViewController {
     func setup() {
-        view.backgroundColor = .clear
+        view.backgroundColor = UIConstants.Colors.mainBackground
     }
 }
 

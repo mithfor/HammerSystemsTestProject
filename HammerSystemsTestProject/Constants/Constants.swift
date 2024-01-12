@@ -17,10 +17,10 @@ enum Constants {
         }
 
        enum IconFill {
-           static let menu = "bitcoinsign.circle.fill"
-           static let contacts = "heart.fill"
-           static let profile = "gearshape.fill"
-           static let cart = "moon.fill"
+           static let menu = "Menu"
+           static let contacts = "Contacts"
+           static let profile = "Profile"
+           static let cart = "Cart"
        }
     }
 }

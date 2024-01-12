@@ -7,9 +7,10 @@
 
 import UIKit
 
-//Mark: - MainTabBarController
+// MARK: - MainTabBarController
 final class MainTabBarController: UITabBarController {
 
+    // MARK: - Init
     init(viewControllers: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllers = viewControllers
@@ -19,9 +20,15 @@ final class MainTabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAppearance()
+    }
 
+    // MARK: - Private
+    private func setupAppearance() {
         view.backgroundColor = .systemGreen
+        tabBar.tintColor = UIConstants.Colors.tabBarItemTint
     }
 }
