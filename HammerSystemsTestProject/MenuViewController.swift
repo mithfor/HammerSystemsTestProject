@@ -10,8 +10,11 @@ import UIKit
 class MenuViewController: UIViewController {
 
     // MARK: - Private vars
-    private var bannerCollectionView: UICollectionView!
-    private var banners: [UIImage?] = []
+    private var bannerCollectionView: BannerCollectionView!
+    private var banners: [UIImage?] = [UIImage(named: "pizza-banner"),
+                                       UIImage(named: "pizza-banner"),
+                                       UIImage(named: "pizza-banner"),
+                                       UIImage(named: "pizza-banner")]
 
     // MARK: - lifecycle
     override func viewDidLoad() {
@@ -33,18 +36,22 @@ private extension MenuViewController {
     func setupBannerCollectionView() {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .horizontal
-        bannerCollectionView = UICollectionView(frame: .zero,
+        bannerCollectionView = BannerCollectionView(frame: .zero,
                                                 collectionViewLayout: collectionViewLayout)
-        bannerCollectionView.backgroundColor = .magenta
+//        bannerCollectionView.backgroundColor = .magenta
+        bannerCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerCollectionView)
         NSLayoutConstraint.activate([
             bannerCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bannerCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bannerCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            bannerCollectionView.heightAnchor.constraint(equalToConstant: 112)
+            bannerCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            bannerCollectionView.heightAnchor.constraint(equalToConstant: 150)
         ])
-
+        bannerCollectionView.register(BannerCell.self,
+                                      forCellWithReuseIdentifier: BannerCell.identifier)
         bannerCollectionView.dataSource = self
+        bannerCollectionView.delegate = self
+        bannerCollectionView.showsHorizontalScrollIndicator = false
     }
 }
 
@@ -55,9 +62,21 @@ extension MenuViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier,
+                                                         for: indexPath) as? BannerCell {
+
+            cell.configure(image: banners[indexPath.item] ?? UIImage())
+            return cell
+        } else {
+            return UICollectionViewCell()
+        }
     }
+}
 
-
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MenuViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 300, height: 150)
+    }
 }
 
