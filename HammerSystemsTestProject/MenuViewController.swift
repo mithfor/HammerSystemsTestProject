@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MenuViewController.swift
 //  HammerSystemsTestProject
 //
 //  Created by Dmitriy Voronin on 12.01.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,9 @@ class ViewController: UIViewController {
     }
 }
 
-private extension ViewController {
+private extension MenuViewController {
     func setup() {
-        view.backgroundColor = .magenta
+        view.backgroundColor = .clear
     }
 }
 

@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = MainTabBarController(viewControllers: [
+            MainTabBarViewControllersFactory.makeMenuViewController(),
+            MainTabBarViewControllersFactory.makeContactsViewController(),
+            MainTabBarViewControllersFactory.makeProfileViewController(),
+            MainTabBarViewControllersFactory.makeCartViewController()
+        ])
         window?.makeKeyAndVisible()
 
         return true
