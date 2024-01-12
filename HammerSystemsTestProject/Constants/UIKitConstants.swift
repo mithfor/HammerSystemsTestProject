@@ -10,7 +10,8 @@ import UIKit
 
 enum UIConstants {
     enum Colors {
-        static let mainBackground: UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+//        static let mainBackground: UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        static let mainBackground: UIColor = .systemBackground
         static let tabBarItemTint: UIColor = UIColor(red: 0.99, green: 0.23, blue: 0.41, alpha: 1)
     }
 

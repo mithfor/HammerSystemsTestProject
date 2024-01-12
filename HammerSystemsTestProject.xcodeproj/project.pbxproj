@@ -15,6 +15,8 @@
 		D3DAB70A2B516999001E7E07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7092B516999001E7E07 /* Constants.swift */; };
 		D3DAB70C2B5169CE001E7E07 /* UIKitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB70B2B5169CE001E7E07 /* UIKitConstants.swift */; };
 		D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB70D2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift */; };
+		D3DAB7142B517789001E7E07 /* BannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7132B517789001E7E07 /* BannerCollectionView.swift */; };
+		D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7152B517D92001E7E07 /* BannerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D3DAB7092B516999001E7E07 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3DAB70B2B5169CE001E7E07 /* UIKitConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitConstants.swift; sourceTree = "<group>"; };
 		D3DAB70D2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewControllersFactory.swift; sourceTree = "<group>"; };
+		D3DAB7132B517789001E7E07 /* BannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionView.swift; sourceTree = "<group>"; };
+		D3DAB7152B517D92001E7E07 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		D3DAB6F12B51536E001E7E07 /* HammerSystemsTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				D3DAB7102B517723001E7E07 /* CustomViews */,
 				D3DAB7082B516970001E7E07 /* Constants */,
 				D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */,
 				D3DAB6F62B51536E001E7E07 /* MenuViewController.swift */,
@@ -87,6 +92,15 @@
 				D3DAB7062B5161BA001E7E07 /* MainTabBarController.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		D3DAB7102B517723001E7E07 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D3DAB7132B517789001E7E07 /* BannerCollectionView.swift */,
+				D3DAB7152B517D92001E7E07 /* BannerCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DAB6F72B51536E001E7E07 /* MenuViewController.swift in Sources */,
+				D3DAB7142B517789001E7E07 /* BannerCollectionView.swift in Sources */,
 				D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */,
 				D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */,
 				D3DAB70C2B5169CE001E7E07 /* UIKitConstants.swift in Sources */,
+				D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */,
 				D3DAB7072B5161BA001E7E07 /* MainTabBarController.swift in Sources */,
 				D3DAB70A2B516999001E7E07 /* Constants.swift in Sources */,
 			);
