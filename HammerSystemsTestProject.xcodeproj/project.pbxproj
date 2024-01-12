@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */; };
-		D3DAB6F52B51536E001E7E07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F42B51536E001E7E07 /* SceneDelegate.swift */; };
 		D3DAB6F72B51536E001E7E07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F62B51536E001E7E07 /* ViewController.swift */; };
-		D3DAB6FA2B51536E001E7E07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6F82B51536E001E7E07 /* Main.storyboard */; };
 		D3DAB6FC2B515370001E7E07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FB2B515370001E7E07 /* Assets.xcassets */; };
 		D3DAB6FF2B515370001E7E07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		D3DAB6EF2B51536E001E7E07 /* HammerSystemsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammerSystemsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3DAB6F42B51536E001E7E07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D3DAB6F62B51536E001E7E07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D3DAB6F92B51536E001E7E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3DAB6FB2B515370001E7E07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DAB6FE2B515370001E7E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DAB7002B515370001E7E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,9 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */,
-				D3DAB6F42B51536E001E7E07 /* SceneDelegate.swift */,
 				D3DAB6F62B51536E001E7E07 /* ViewController.swift */,
-				D3DAB6F82B51536E001E7E07 /* Main.storyboard */,
 				D3DAB6FB2B515370001E7E07 /* Assets.xcassets */,
 				D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */,
 				D3DAB7002B515370001E7E07 /* Info.plist */,
@@ -127,7 +121,6 @@
 			files = (
 				D3DAB6FF2B515370001E7E07 /* LaunchScreen.storyboard in Resources */,
 				D3DAB6FC2B515370001E7E07 /* Assets.xcassets in Resources */,
-				D3DAB6FA2B51536E001E7E07 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,21 +133,12 @@
 			files = (
 				D3DAB6F72B51536E001E7E07 /* ViewController.swift in Sources */,
 				D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */,
-				D3DAB6F52B51536E001E7E07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D3DAB6F82B51536E001E7E07 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3DAB6F92B51536E001E7E07 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +276,7 @@
 				INFOPLIST_FILE = HammerSystemsTestProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +304,7 @@
 				INFOPLIST_FILE = HammerSystemsTestProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
