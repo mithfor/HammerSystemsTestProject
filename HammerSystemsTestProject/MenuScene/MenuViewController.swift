@@ -91,6 +91,7 @@ private extension MenuViewController {
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
         categoriesCollectionView.showsHorizontalScrollIndicator = false
+        categoriesCollectionView.allowsMultipleSelection = false
     }
 }
 
@@ -127,6 +128,22 @@ extension MenuViewController: UICollectionViewDataSource {
             }
         }
     }
+}
+
+extension MenuViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            cell.select()
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            cell.select()
+        }
+    }
+
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
