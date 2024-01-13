@@ -8,7 +8,7 @@
 import UIKit
 
 typealias Banners = [UIImage?]
-typealias Categories = [String?]
+typealias Categories = [MealCategory]
 
 protocol MenuViewControllerInput {
     func displayBanners(_ banners: Banners)
@@ -34,9 +34,9 @@ class MenuViewController: UIViewController {
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         initialize()
         MenuConfigurator.shared.configure(viewController: self)
+        
         output?.fetchBanners()
         output?.fetchCategories()
     }
@@ -93,6 +93,34 @@ private extension MenuViewController {
         categoriesCollectionView.showsHorizontalScrollIndicator = false
         categoriesCollectionView.allowsMultipleSelection = false
     }
+
+    private func makeBannerCell(
+        from collectionView: UICollectionView,
+        at indexPath: IndexPath) -> BannerCell {
+            if let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BannerCell.identifier,
+                for: indexPath) as? BannerCell {
+
+                cell.configure(image: banners[indexPath.item] ?? UIImage())
+                return cell
+            } else {
+                return BannerCell()
+            }
+        }
+
+    private func makeCategoryCell(
+        from collectionView: UICollectionView,
+        at indexPath: IndexPath) -> CategoryCell {
+            if let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CategoryCell.identifier,
+                for: indexPath) as? CategoryCell {
+
+                cell.configure(with: categories[indexPath.item])
+                return cell
+            } else {
+                return CategoryCell()
+            }
+        }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -109,23 +137,9 @@ extension MenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if collectionView is BannerCollectionView {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier,
-                                                             for: indexPath) as? BannerCell {
-
-                cell.configure(image: banners[indexPath.item] ?? UIImage())
-                return cell
-            } else {
-                return UICollectionViewCell()
-            }
+            return makeBannerCell(from: collectionView, at: indexPath)
         } else {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier,
-                                                             for: indexPath) as? CategoryCell {
-
-                cell.configure(with: categories[indexPath.item] ?? "Empty")
-                return cell
-            } else {
-                return UICollectionViewCell()
-            }
+            return makeCategoryCell(from: collectionView, at: indexPath)
         }
     }
 }
@@ -148,7 +162,9 @@ extension MenuViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         if collectionView is BannerCollectionView {
             return CGSize(width: 300, height: 130)

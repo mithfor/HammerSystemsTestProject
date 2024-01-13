@@ -62,9 +62,9 @@
             filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "displayCategories(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,58 +78,10 @@
             filePath = "HammerSystemsTestProject/CustomViews/CategoryCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "select()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E588FE61-4D9A-48AF-886D-63F782C0B963"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E588FE61-4D9A-48AF-886D-63F782C0B963 - 1641dbbec70ee8eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HammerSystemsTestProject.MenuViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "HammerSystemsTestProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "130">
-               </Location>
-               <Location
-                  uuid = "E588FE61-4D9A-48AF-886D-63F782C0B963 - 1641dbbec70ee8eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HammerSystemsTestProject.MenuViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "HammerSystemsTestProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "358">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

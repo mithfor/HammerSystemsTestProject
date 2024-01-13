@@ -22,9 +22,14 @@ extension MenuInteractor: MenuInteractorInput {
     func fetchCategories() {
 
         // TODO: - Extract to worker!!!
-        APIManager.loadCategories { [weak self] categories in
-            self?.output?.presentCategories(categories)
-        }
+
+        NetworkManager.shared.loadCategories { result in
+                  switch result {
+                  case .failure(let error):
+                      print("Error fetching categories \(error)")
+                  case .success(let response):
+                      self.output?.presentCategories(response.categories)                  }
+              }
     }
 
     func fetchBanners() {
