@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "setupBannerCollectionView()"
+            landmarkName = "initialize()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            landmarkName = "MenuViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,54 +48,86 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "initialize()"
+            landmarkName = "MenuViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34BE3537-D718-4118-B882-26F827590835"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B69504C-143B-473F-91F9-900CE712402D"
+            uuid = "F20DF3EF-CCBA-4A33-8AA7-7FD4430D353B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/APIManager.swift"
+            filePath = "HammerSystemsTestProject/CustomViews/CategoryCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "loadBanners(completion:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "select()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E588FE61-4D9A-48AF-886D-63F782C0B963"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0B69504C-143B-473F-91F9-900CE712402D - 82a3427848b966fc"
+                  uuid = "E588FE61-4D9A-48AF-886D-63F782C0B963 - 1641dbbec70ee8eb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static HammerSystemsTestProject.APIManager.loadBanners(completion: (Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "HammerSystemsTestProject.MenuViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
                   moduleName = "HammerSystemsTestProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/APIManager.swift"
+                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/MenuScene/MenuViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "266">
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "130">
                </Location>
                <Location
-                  uuid = "0B69504C-143B-473F-91F9-900CE712402D - 2b9ab0746b45ec3f"
+                  uuid = "E588FE61-4D9A-48AF-886D-63F782C0B963 - 1641dbbec70ee8eb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in static HammerSystemsTestProject.APIManager.loadBanners(completion: (Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "HammerSystemsTestProject.MenuViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
                   moduleName = "HammerSystemsTestProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/APIManager.swift"
+                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/MenuScene/MenuViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "358">
                </Location>
             </Locations>
          </BreakpointContent>
