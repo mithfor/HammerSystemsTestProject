@@ -11,26 +11,31 @@ class MenuViewController: UIViewController {
 
     // MARK: - Private vars
     private var bannerCollectionView: BannerCollectionView!
-    private var banners: [UIImage?] = [UIImage(named: "pizza-banner"),
-                                       UIImage(named: "pizza-banner"),
-                                       UIImage(named: "pizza-banner"),
-                                       UIImage(named: "pizza-banner")]
+    private var banners: [UIImage?] = []
 
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setup()
+        initialize()
     }
 }
 
 
 // MARK: - Private methods
 private extension MenuViewController {
-    func setup() {
+    func initialize() {
         view.backgroundColor = UIConstants.Colors.mainBackground
 
         setupBannerCollectionView()
+
+        // TODO: - Extract to interactor and presenter!!!
+        APIManager.loadBanners { [weak self] banners in
+            self?.banners = banners
+            DispatchQueue.main.async {
+                self?.bannerCollectionView.reloadData()
+            }
+        }
     }
 
     func setupBannerCollectionView() {
@@ -38,13 +43,12 @@ private extension MenuViewController {
         collectionViewLayout.scrollDirection = .horizontal
         bannerCollectionView = BannerCollectionView(frame: .zero,
                                                 collectionViewLayout: collectionViewLayout)
-//        bannerCollectionView.backgroundColor = .magenta
         bannerCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerCollectionView)
         NSLayoutConstraint.activate([
             bannerCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bannerCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bannerCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            bannerCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             bannerCollectionView.heightAnchor.constraint(equalToConstant: 150)
         ])
         bannerCollectionView.register(BannerCell.self,

@@ -17,6 +17,7 @@
 		D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB70D2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift */; };
 		D3DAB7142B517789001E7E07 /* BannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7132B517789001E7E07 /* BannerCollectionView.swift */; };
 		D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7152B517D92001E7E07 /* BannerCell.swift */; };
+		D3DAB7182B518BC0001E7E07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7172B518BC0001E7E07 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D3DAB70D2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewControllersFactory.swift; sourceTree = "<group>"; };
 		D3DAB7132B517789001E7E07 /* BannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionView.swift; sourceTree = "<group>"; };
 		D3DAB7152B517D92001E7E07 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		D3DAB7172B518BC0001E7E07 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D3DAB6FB2B515370001E7E07 /* Assets.xcassets */,
 				D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */,
 				D3DAB7002B515370001E7E07 /* Info.plist */,
+				D3DAB7172B518BC0001E7E07 /* APIManager.swift */,
 			);
 			path = HammerSystemsTestProject;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				D3DAB6F72B51536E001E7E07 /* MenuViewController.swift in Sources */,
 				D3DAB7142B517789001E7E07 /* BannerCollectionView.swift in Sources */,
 				D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */,
+				D3DAB7182B518BC0001E7E07 /* APIManager.swift in Sources */,
 				D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */,
 				D3DAB70C2B5169CE001E7E07 /* UIKitConstants.swift in Sources */,
 				D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */,
