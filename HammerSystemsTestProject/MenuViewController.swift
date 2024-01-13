@@ -7,17 +7,30 @@
 
 import UIKit
 
+typealias Banners = [UIImage?]
+
+protocol MenuViewControllerInput {
+    func displayBanners(_ banners: Banners)
+}
+
+protocol MenuViewControllerOutput {
+    func fetchBanners()
+}
+
 class MenuViewController: UIViewController {
+
+    var output: MenuViewControllerOutput?
 
     // MARK: - Private vars
     private var bannerCollectionView: BannerCollectionView!
-    private var banners: [UIImage?] = []
+    private var banners: Banners = []
 
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initialize()
+        output?.fetchBanners()
     }
 }
 
@@ -28,14 +41,6 @@ private extension MenuViewController {
         view.backgroundColor = UIConstants.Colors.mainBackground
 
         setupBannerCollectionView()
-
-        // TODO: - Extract to interactor and presenter!!!
-        APIManager.loadBanners { [weak self] banners in
-            self?.banners = banners
-            DispatchQueue.main.async {
-                self?.bannerCollectionView.reloadData()
-            }
-        }
     }
 
     func setupBannerCollectionView() {
