@@ -11,6 +11,8 @@
 		D33F512A2B529A7A00D16120 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51272B529A7A00D16120 /* MenuInteractor.swift */; };
 		D33F512B2B529A7A00D16120 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51292B529A7A00D16120 /* MenuPresenter.swift */; };
 		D33F512C2B529A7A00D16120 /* MenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51282B529A7A00D16120 /* MenuConfigurator.swift */; };
+		D33F512F2B529B2F00D16120 /* CategoriesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F512E2B529B2F00D16120 /* CategoriesCollectionView.swift */; };
+		D33F51312B529F3000D16120 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51302B529F3000D16120 /* CategoryCell.swift */; };
 		D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */; };
 		D3DAB6FC2B515370001E7E07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FB2B515370001E7E07 /* Assets.xcassets */; };
 		D3DAB6FF2B515370001E7E07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */; };
@@ -28,6 +30,8 @@
 		D33F51272B529A7A00D16120 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
 		D33F51282B529A7A00D16120 /* MenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfigurator.swift; sourceTree = "<group>"; };
 		D33F51292B529A7A00D16120 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
+		D33F512E2B529B2F00D16120 /* CategoriesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionView.swift; sourceTree = "<group>"; };
+		D33F51302B529F3000D16120 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		D3DAB6EF2B51536E001E7E07 /* HammerSystemsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammerSystemsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DAB6FB2B515370001E7E07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 			children = (
 				D3DAB7132B517789001E7E07 /* BannerCollectionView.swift */,
 				D3DAB7152B517D92001E7E07 /* BannerCell.swift */,
+				D33F512E2B529B2F00D16120 /* CategoriesCollectionView.swift */,
+				D33F51302B529F3000D16120 /* CategoryCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -196,12 +202,14 @@
 				D3DAB7142B517789001E7E07 /* BannerCollectionView.swift in Sources */,
 				D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */,
 				D3DAB7182B518BC0001E7E07 /* APIManager.swift in Sources */,
+				D33F51312B529F3000D16120 /* CategoryCell.swift in Sources */,
 				D33F512B2B529A7A00D16120 /* MenuPresenter.swift in Sources */,
 				D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */,
 				D33F512C2B529A7A00D16120 /* MenuConfigurator.swift in Sources */,
 				D33F51262B529A6D00D16120 /* MenuViewController.swift in Sources */,
 				D33F512A2B529A7A00D16120 /* MenuInteractor.swift in Sources */,
 				D3DAB70C2B5169CE001E7E07 /* UIKitConstants.swift in Sources */,
+				D33F512F2B529B2F00D16120 /* CategoriesCollectionView.swift in Sources */,
 				D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */,
 				D3DAB7072B5161BA001E7E07 /* MainTabBarController.swift in Sources */,
 				D3DAB70A2B516999001E7E07 /* Constants.swift in Sources */,

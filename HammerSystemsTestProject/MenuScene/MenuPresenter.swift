@@ -14,6 +14,10 @@ class MenuPresenter {
 }
 
 extension MenuPresenter: MenuPresenterInput {
+    func presentCategories(_ categories: Categories) {
+        output?.displayCategories(categories)
+    }
+
     func presentBanners(_ banners: Banners) {
         output?.displayBanners(banners)
     }

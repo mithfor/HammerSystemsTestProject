@@ -9,11 +9,17 @@ import UIKit
 
 class APIManager {
     static func loadBanners(completion: @escaping ([UIImage?]) -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             completion([UIImage(named: "pizza-banner"),
                         UIImage(named: "pizza-banner"),
                         UIImage(named: "pizza-banner"),
                         UIImage(named: "pizza-banner")])
-        }
+    }
+
+    static func loadCategories(completion: @escaping ([String?]) -> ()) {
+            completion(["Пицца",
+                        "Комбо",
+                        "Десерты",
+                        "Напитки",
+                        "Кофе"])
     }
 }
