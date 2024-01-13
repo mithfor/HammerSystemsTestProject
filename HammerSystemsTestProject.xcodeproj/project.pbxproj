@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D33F511D2B528B6A00D16120 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F511C2B528B6A00D16120 /* MenuInteractor.swift */; };
+		D33F511F2B528D1500D16120 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F511E2B528D1500D16120 /* MenuPresenter.swift */; };
+		D33F51222B5290B700D16120 /* MenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51212B5290B700D16120 /* MenuConfigurator.swift */; };
 		D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */; };
 		D3DAB6F72B51536E001E7E07 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F62B51536E001E7E07 /* MenuViewController.swift */; };
 		D3DAB6FC2B515370001E7E07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FB2B515370001E7E07 /* Assets.xcassets */; };
