@@ -30,6 +30,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initialize()
+        MenuConfigurator.shared.configure(viewController: self)
         output?.fetchBanners()
     }
 }
@@ -86,6 +87,17 @@ extension MenuViewController: UICollectionViewDataSource {
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 300, height: 150)
+    }
+}
+
+extension MenuViewController: MenuViewControllerInput {
+    func displayBanners(_ banners: Banners) {
+        print(#function)
+
+        DispatchQueue.main.async {
+            self.banners = banners
+            self.bannerCollectionView.reloadData()
+        }
     }
 }
 

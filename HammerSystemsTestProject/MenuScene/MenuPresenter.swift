@@ -10,11 +10,11 @@ import Foundation
 typealias MenuPresenterInput = MenuInteractorOutput
 
 class MenuPresenter {
-
+    var output: MenuViewControllerInput?
 }
 
 extension MenuPresenter: MenuPresenterInput {
     func presentBanners(_ banners: Banners) {
-        print(#function)
+        output?.displayBanners(banners)
     }
 }
