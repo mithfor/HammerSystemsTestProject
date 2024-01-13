@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D33F51262B529A6D00D16120 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51252B529A6D00D16120 /* MenuViewController.swift */; };
+		D33F512A2B529A7A00D16120 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51272B529A7A00D16120 /* MenuInteractor.swift */; };
+		D33F512B2B529A7A00D16120 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51292B529A7A00D16120 /* MenuPresenter.swift */; };
+		D33F512C2B529A7A00D16120 /* MenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F51282B529A7A00D16120 /* MenuConfigurator.swift */; };
 		D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */; };
-		D3DAB6F72B51536E001E7E07 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F62B51536E001E7E07 /* MenuViewController.swift */; };
 		D3DAB6FC2B515370001E7E07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FB2B515370001E7E07 /* Assets.xcassets */; };
 		D3DAB6FF2B515370001E7E07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */; };
 		D3DAB7072B5161BA001E7E07 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7062B5161BA001E7E07 /* MainTabBarController.swift */; };
@@ -21,9 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D33F51252B529A6D00D16120 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		D33F51272B529A7A00D16120 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
+		D33F51282B529A7A00D16120 /* MenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfigurator.swift; sourceTree = "<group>"; };
+		D33F51292B529A7A00D16120 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
 		D3DAB6EF2B51536E001E7E07 /* HammerSystemsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammerSystemsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3DAB6F62B51536E001E7E07 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D3DAB6FB2B515370001E7E07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DAB6FE2B515370001E7E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DAB7002B515370001E7E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +53,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D33F512D2B529A9C00D16120 /* MenuScene */ = {
+			isa = PBXGroup;
+			children = (
+				D33F51252B529A6D00D16120 /* MenuViewController.swift */,
+				D33F51282B529A7A00D16120 /* MenuConfigurator.swift */,
+				D33F51272B529A7A00D16120 /* MenuInteractor.swift */,
+				D33F51292B529A7A00D16120 /* MenuPresenter.swift */,
+			);
+			path = MenuScene;
+			sourceTree = "<group>";
+		};
 		D3DAB6E62B51536E001E7E07 = {
 			isa = PBXGroup;
 			children = (
@@ -69,12 +86,12 @@
 				D3DAB7102B517723001E7E07 /* CustomViews */,
 				D3DAB7082B516970001E7E07 /* Constants */,
 				D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */,
-				D3DAB6F62B51536E001E7E07 /* MenuViewController.swift */,
 				D3DAB70F2B516C4F001E7E07 /* MainTabBar */,
 				D3DAB6FB2B515370001E7E07 /* Assets.xcassets */,
 				D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */,
 				D3DAB7002B515370001E7E07 /* Info.plist */,
 				D3DAB7172B518BC0001E7E07 /* APIManager.swift */,
+				D33F512D2B529A9C00D16120 /* MenuScene */,
 			);
 			path = HammerSystemsTestProject;
 			sourceTree = "<group>";
@@ -176,11 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DAB6F72B51536E001E7E07 /* MenuViewController.swift in Sources */,
 				D3DAB7142B517789001E7E07 /* BannerCollectionView.swift in Sources */,
 				D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */,
 				D3DAB7182B518BC0001E7E07 /* APIManager.swift in Sources */,
+				D33F512B2B529A7A00D16120 /* MenuPresenter.swift in Sources */,
 				D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */,
+				D33F512C2B529A7A00D16120 /* MenuConfigurator.swift in Sources */,
+				D33F51262B529A6D00D16120 /* MenuViewController.swift in Sources */,
+				D33F512A2B529A7A00D16120 /* MenuInteractor.swift in Sources */,
 				D3DAB70C2B5169CE001E7E07 /* UIKitConstants.swift in Sources */,
 				D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */,
 				D3DAB7072B5161BA001E7E07 /* MainTabBarController.swift in Sources */,
