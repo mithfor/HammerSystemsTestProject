@@ -19,6 +19,7 @@
 		D3929C112B53C64D00D96A54 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C102B53C64D00D96A54 /* ViewModel.swift */; };
 		D3929C142B53C81100D96A54 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C132B53C81100D96A54 /* MockData.swift */; };
 		D3929C172B53D80900D96A54 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C162B53D80900D96A54 /* UIView + Extension.swift */; };
+		D3929C192B53EB4100D96A54 /* MealGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */; };
 		D3A92EE82B52D0AE00827D12 /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A92EE72B52D0AE00827D12 /* MealCategory.swift */; };
 		D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */; };
 		D3DAB6FC2B515370001E7E07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DAB6FB2B515370001E7E07 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		D3929C102B53C64D00D96A54 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D3929C132B53C81100D96A54 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		D3929C162B53D80900D96A54 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealGoodsCell.swift; sourceTree = "<group>"; };
 		D3A92EE72B52D0AE00827D12 /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
 		D3DAB6EF2B51536E001E7E07 /* HammerSystemsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammerSystemsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				D3DAB7152B517D92001E7E07 /* BannerCell.swift */,
 				D33F51302B529F3000D16120 /* CategoryCell.swift */,
+				D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3929C112B53C64D00D96A54 /* ViewModel.swift in Sources */,
+				D3929C192B53EB4100D96A54 /* MealGoodsCell.swift in Sources */,
 				D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */,
 				D3DAB7182B518BC0001E7E07 /* APIManager.swift in Sources */,
 				D3929C172B53D80900D96A54 /* UIView + Extension.swift in Sources */,

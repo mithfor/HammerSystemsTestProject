@@ -13,9 +13,9 @@ struct MockData {
 
     private let banners: MenuSection = {
         .banners([
-            BannerViewModel.init(image: UIImage(named: "pizza-banner")!),
-            BannerViewModel.init(image: UIImage(named: "pizza-banner")!),
-            BannerViewModel.init(image: UIImage(named: "pizza-banner")!)
+            .init(image: UIImage(named: "pizza-banner")!),
+            .init(image: UIImage(named: "pizza-banner")!),
+            .init(image: UIImage(named: "pizza-banner")!)
         ])
     }()
 
@@ -30,7 +30,44 @@ struct MockData {
         ])
     }()
 
+    private let mealgoods: MenuSection = {
+        .mealgoods([
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title1",
+                  description: "Description1",
+                  priceTitle: "from 350"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450"),
+            .init(image: UIImage(named: "pizza-banner")!,
+                  title: "Title2",
+                  description: "Description2",
+                  priceTitle: "from 450")
+        ])
+    }()
+
     var pageData: [MenuSection] {
-        [banners, mealCategories]
+        [banners, mealCategories, mealgoods]
     }
 }

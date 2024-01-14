@@ -11,7 +11,7 @@ enum MenuSection {
 
     case banners([BannerViewModel])
     case categories([MealCategoryViewModel])
-//    case mealgoods([MealGoodViewModel])
+    case mealgoods([MealGoodViewModel])
 
     var items: [ViewModel] {
         switch self {
@@ -19,8 +19,8 @@ enum MenuSection {
             return array
         case .categories(let array):
             return array
-//        case .mealgoods(let array):
-//            return array
+        case .mealgoods(let array):
+            return array
         }
     }
 

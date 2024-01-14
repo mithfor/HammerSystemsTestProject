@@ -72,4 +72,13 @@ enum UIConstants {
 
         static let interSpacing: CGFloat = 8
     }
+
+    enum MealGoodsSection {
+        enum MealGoods {
+            static let width: CGFloat = 375
+            static let height: CGFloat = 156
+        }
+
+        static let interSpacing: CGFloat = 0
+    }
 }

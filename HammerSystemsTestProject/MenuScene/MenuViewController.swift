@@ -32,7 +32,6 @@ class MenuViewController: UIViewController {
         let layout = UICollectionViewLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .none
-        collectionView.bounces = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -59,6 +58,7 @@ extension UICollectionView {
     func registerCells() {
         self.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         self.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
+        self.register(MealGoodsCell.self, forCellWithReuseIdentifier: MealGoodsCell.identifier)
     }
 }
 private extension MenuViewController {
@@ -105,15 +105,23 @@ private extension MenuViewController {
         }
 
     // TODO: - Implement MeallGoodCell !!!
-    func makeGoodsCell(at indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    func makeGoodsCell(with viewModel: MealGoodViewModel, for indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: MealGoodsCell.identifier,
+            for: indexPath) as? MealGoodsCell {
+
+            cell.configure(with: viewModel)
+            return cell
+        } else {
+            return MealGoodsCell()
+        }
     }
 }
 
 // MARK: - Create Layout
 private extension MenuViewController {
     func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
             guard let self = self else { return nil }
             let section = self.sections[sectionIndex]
 
@@ -123,8 +131,8 @@ private extension MenuViewController {
                 return self.createBannersSection()
             case .categories(_):
                 return self.createMealCategoriesSection()
-//            case .mealgoods(_):
-//                break
+            case .mealgoods(_):
+                return self.createMealGoodsSection(with: layoutEnvironment)
             }
         }
     }
@@ -132,7 +140,7 @@ private extension MenuViewController {
 
 
     func createLayoutSection(group: NSCollectionLayoutGroup,
-                             behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
+                             behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior? = nil,
                              interGroupSpacing: CGFloat) -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
@@ -162,7 +170,7 @@ private extension MenuViewController {
     func createMealCategoriesSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(widthDimension: .fractionalWidth(1),
-                              heightDimension: .fractionalWidth(1)))
+                              heightDimension: .fractionalHeight(1)))
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
@@ -172,12 +180,23 @@ private extension MenuViewController {
 
         let section = createLayoutSection(
             group: group,
-            behavior: .continuousGroupLeadingBoundary,
+            behavior: .groupPagingCentered,
             interGroupSpacing: UIConstants.CategoriesSection.interSpacing)
 
         return section
     }
 
+    func createMealGoodsSection(with environment : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+
+        var listConfig = UICollectionLayoutListConfiguration(appearance: .grouped)
+
+
+        let section = NSCollectionLayoutSection.list(using: listConfig, layoutEnvironment: environment)
+
+        section.contentInsets.top = 20
+
+        return section
+    }
 
 
 }
@@ -202,8 +221,8 @@ extension MenuViewController: UICollectionViewDataSource {
             return makeBannerCell(with: items[indexPath.row], for: indexPath)
         case .categories(let items):
             return makeCategoryCell(with: items[indexPath.row], for: indexPath)
-//        case .mealgoods(_):
-//            return makeGoodsCell(at: indexPath)
+        case .mealgoods(let items):
+            return makeGoodsCell(with: items[indexPath.row], for: indexPath)
         }
     }
 }
@@ -224,20 +243,6 @@ extension MenuViewController: UICollectionViewDelegate {
     }
 
 }
-
-// MARK: - UICollectionViewDelegateFlowLayout
-//extension MenuViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        if collectionView is BannerCollectionView {
-//            return CGSize(width: 300, height: 130)
-//        } else {
-//            return CGSize(width: 88, height: 32)
-//        }
-//    }
-//}
 
 // MARK: - MenuViewControllerInput
 extension MenuViewController: MenuViewControllerInput {
