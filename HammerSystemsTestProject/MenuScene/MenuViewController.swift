@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .none
+        collectionView.backgroundColor = UIConstants.Colors.mainBackground
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -188,8 +188,7 @@ private extension MenuViewController {
 
     func createMealGoodsSection(with environment : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
 
-        var listConfig = UICollectionLayoutListConfiguration(appearance: .grouped)
-
+        let listConfig = UICollectionLayoutListConfiguration(appearance: .plain)
 
         let section = NSCollectionLayoutSection.list(using: listConfig, layoutEnvironment: environment)
 

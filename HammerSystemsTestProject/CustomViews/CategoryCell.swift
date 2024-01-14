@@ -15,7 +15,7 @@ class CategoryCell: UICollectionViewCell {
     var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .clear
+        label.backgroundColor = UIConstants.Colors.mainBackground
         label.textColor = UIColor(red: 0.99, green: 0.23, blue: 0.41, alpha: 1)
         label.layer.borderWidth = 1
         label.layer.borderColor = UIColor(red: 0.992, green: 0.227, blue: 0.412, alpha: 0.4).cgColor
