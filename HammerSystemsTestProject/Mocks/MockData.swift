@@ -34,7 +34,7 @@ struct MockData {
         .mealgoods([
             .init(image: UIImage(named: "pizza-banner")!,
                   title: "Title1",
-                  description: "Description1",
+                  description: " Description1 Description2 Description3 Description4 Description5 Description6 Description7 Description8 Description9 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 ",
                   priceTitle: "from 350"),
             .init(image: UIImage(named: "pizza-banner")!,
                   title: "Title2",
