@@ -29,9 +29,14 @@ class CategoryCell: UICollectionViewCell {
     var category: MealCategory?
 
     // MARK: - Public methods
+    @available(*, deprecated, message: "Use func configure(with viewModel: MealCategoryViewModel) instead")
     func configure(with category: MealCategory) {
         self.label.text = category.strCategory
         self.category = category
+    }
+
+    func configure(with viewModel: MealCategoryViewModel) {
+        self.label.text = viewModel.title
     }
 
     func select() {
@@ -67,8 +72,8 @@ private extension CategoryCell {
         contentView.layer.cornerRadius = 20
 
         NSLayoutConstraint.activate([
-            label.heightAnchor.constraint(equalToConstant: 32),
-            label.widthAnchor.constraint(equalToConstant: 88),
+            label.heightAnchor.constraint(equalToConstant: UIConstants.CategoriesSection.Category.height),
+            label.widthAnchor.constraint(equalToConstant: UIConstants.CategoriesSection.Category.width),
             label.topAnchor.constraint(equalTo: contentView.topAnchor),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),

@@ -37,16 +37,12 @@ class BannerCell: UICollectionViewCell {
 private extension BannerCell {
     func initialize() {
         contentView.addSubview(imageView)
+        imageView.pinToEdges(of: contentView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 150),
-            imageView.widthAnchor.constraint(equalToConstant: 300),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
+            imageView.heightAnchor.constraint(equalToConstant: UIConstants.BannersSection.Banner.height),
+            imageView.widthAnchor.constraint(equalToConstant: UIConstants.BannersSection.Banner.width),
             ])
     }
 }

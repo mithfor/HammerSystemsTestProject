@@ -55,4 +55,21 @@ enum UIConstants {
             }
         }
     }
+    enum BannersSection {
+        enum Banner {
+            static let width: CGFloat = 300
+            static let height: CGFloat = 150
+        }
+
+        static let interSpacing: CGFloat = 16
+    }
+
+    enum CategoriesSection {
+        enum Category {
+            static let width: CGFloat = 88
+            static let height: CGFloat = 32
+        }
+
+        static let interSpacing: CGFloat = 8
+    }
 }
