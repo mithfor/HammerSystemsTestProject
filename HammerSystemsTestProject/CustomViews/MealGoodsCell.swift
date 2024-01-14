@@ -35,7 +35,6 @@ class MealGoodsCell: UICollectionViewListCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.borderWidth = 1
         return imageView
     }()
 
@@ -45,9 +44,6 @@ class MealGoodsCell: UICollectionViewListCell {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
-
-        label.layer.borderWidth = 1
-
         return label
     }()
 
@@ -59,9 +55,6 @@ class MealGoodsCell: UICollectionViewListCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = false
         label.lineBreakMode = .byTruncatingTail
-
-        label.layer.borderWidth = 1
-
         return label
     }()
 
@@ -85,7 +78,6 @@ private extension MealGoodsCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(priceLabel)
-
 
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.height),
