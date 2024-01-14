@@ -11,7 +11,7 @@ struct MockData {
 
     static let shared = MockData()
 
-    private let banners: MenuSection = {
+    private var banners: MenuSection = {
         .banners([
             .init(image: UIImage(named: "pizza-banner")!),
             .init(image: UIImage(named: "pizza-banner")!),
@@ -19,7 +19,7 @@ struct MockData {
         ])
     }()
 
-    private let mealCategories: MenuSection = {
+    private var mealCategories: MenuSection = {
         .categories([
             .init(title: "first"),
             .init(title: "second"),
@@ -30,7 +30,7 @@ struct MockData {
         ])
     }()
 
-    private let mealgoods: MenuSection = {
+    private var mealgoods: MenuSection = {
         .mealgoods([
             .init(image: UIImage(named: "pizza-banner")!,
                   title: "Title1",

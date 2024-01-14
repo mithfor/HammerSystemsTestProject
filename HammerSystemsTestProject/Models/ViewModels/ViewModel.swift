@@ -7,5 +7,12 @@
 
 import Foundation
 
-protocol ViewModel {
+protocol ViewModel: Hashable {
+    static var id: UUID { get }
+}
+
+extension ViewModel {
+    static var id: UUID {
+        UUID()
+    }
 }

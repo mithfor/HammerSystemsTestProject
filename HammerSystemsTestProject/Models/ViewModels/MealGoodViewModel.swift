@@ -8,6 +8,7 @@
 import UIKit
 
 struct MealGoodViewModel: ViewModel {
+
     var image: UIImage
     var title: String
     var description: String

@@ -7,13 +7,14 @@
 
 import UIKit
 
-typealias Banners = [UIImage?]
+typealias BannersViewModel = [BannerViewModel]
 typealias Categories = [MealCategory]
+typealias Banners = [Banner]
 
 
 // MARK: - Protocols
 protocol MenuViewControllerInput {
-    func displayBanners(_ banners: Banners)
+    func displayBanners(_ banners: BannersViewModel)
     func displayCategories(_ categories: Categories)
 }
 
@@ -36,10 +37,10 @@ class MenuViewController: UIViewController {
         return collectionView
     }()
 
-    private var banners: Banners = []
+    private var bannersViewModel: BannersViewModel = []
     private var categories: Categories = []
 
-    private let sections = MockData.shared.pageData
+    private var sections = MockData.shared.pageData
 
     // MARK: - lifecycle
     override func viewDidLoad() {
@@ -255,11 +256,11 @@ extension MenuViewController: MenuViewControllerInput {
         }
     }
 
-    func displayBanners(_ banners: Banners) {
+    func displayBanners(_ banners: BannersViewModel) {
         print(#function)
 
         DispatchQueue.main.async {
-            self.banners = banners
+            self.bannersViewModel = banners
 //            self.bannerCollectionView.reloadData()
         }
     }

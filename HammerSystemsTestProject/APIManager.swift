@@ -9,11 +9,12 @@ import UIKit
 
 class APIManager {
 
-    static func loadBanners(completion: @escaping ([UIImage?]) -> ()) {
-            completion([UIImage(named: "pizza-banner"),
-                        UIImage(named: "pizza-banner"),
-                        UIImage(named: "pizza-banner"),
-                        UIImage(named: "pizza-banner")])
+    static func loadBanners(completion: @escaping ([Banner]) -> ()) {
+            completion([
+                Banner(image: UIImage(named: "pizza-banner") ?? UIImage()),
+                Banner(image: (UIImage(systemName: "star") ?? UIImage())!),
+                Banner(image: UIImage(named: "pizza-banner") ?? UIImage()),
+                Banner(image: UIImage(named: "pizza-banner") ?? UIImage())])
     }
 }
 

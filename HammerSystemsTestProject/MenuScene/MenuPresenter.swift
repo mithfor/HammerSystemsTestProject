@@ -14,11 +14,14 @@ class MenuPresenter {
 }
 
 extension MenuPresenter: MenuPresenterInput {
-    func presentCategories(_ categories: Categories) {
-        output?.displayCategories(categories)
+    func presentBanners(_ banners: [Banner]) {
+        //        guard let banners = banners else { return }
+        output?.displayBanners(
+            ViewModelFactory.shared.makeBannersViewModel(banners)
+        )
     }
 
-    func presentBanners(_ banners: Banners) {
-        output?.displayBanners(banners)
+    func presentCategories(_ categories: Categories) {
+        output?.displayCategories(categories)
     }
 }

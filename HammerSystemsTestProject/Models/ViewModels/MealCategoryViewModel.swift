@@ -8,5 +8,6 @@
 import Foundation
 
 struct MealCategoryViewModel: ViewModel {
+
     var title: String
 }
