@@ -24,22 +24,12 @@ class CategoryCell: UICollectionViewCell {
         return label
     }()
 
-    var category: MealCategory?
-
-    // MARK: - Public methods
-    @available(*, deprecated, message: "Use func configure(with viewModel: MealCategoryViewModel) instead")
-    func configure(with category: MealCategory) {
-        self.label.text = category.strCategory
-        self.category = category
-    }
-
     func select() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if self.isSelected {
                 self.label.backgroundColor = UIColor(red: 0.992, green: 0.227, blue: 0.412, alpha: 0.2)
                 self.label.layer.borderWidth = 0
-                print(self.category?.strCategory as Any)
             } else {
                 self.label.backgroundColor = .clear
                 self.label.layer.borderWidth = 1

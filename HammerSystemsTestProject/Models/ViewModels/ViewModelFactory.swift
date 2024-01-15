@@ -47,7 +47,7 @@ class ViewModelFactory {
                                 image: imageObject,
                                 title: meal.strMeal,
                                 description: meal.strMealThumb,
-                                priceTitle: "Valuless"))
+                                priceTitle: "Valueless"))
                      }
                 dispatchGroup.leave()
                   }

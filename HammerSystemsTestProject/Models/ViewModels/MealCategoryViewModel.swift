@@ -13,7 +13,6 @@ class MealCategoryViewModel: ViewModel {
         self.title = title
     }
     
-    
     var idCategory: String
     var title: String
 }

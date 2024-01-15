@@ -114,12 +114,11 @@ private extension MenuViewController {
     private func setupDiffableDatasource() {
         collectionView.dataSource = diffableDataSource
 
-//        reloadData()
+        reloadData()
     }
 
     func setupDelegates() {
         collectionView.delegate = self
-//        collectionView.dataSource = self
     }
 
 
@@ -238,31 +237,6 @@ private extension MenuViewController {
     }
 }
 
-// MARK: - UICollectionViewDataSource
-//extension MenuViewController: UICollectionViewDataSource {
-//
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        sections.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//        sections[section].count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        switch sections[indexPath.section] {
-//
-//        case .banners(let items):
-//            return makeBannerCell(with: items[indexPath.row], for: indexPath)
-//        case .categories(let items):
-//            return makeCategoryCell(with: items[indexPath.row], for: indexPath)
-//        case .mealgoods(let items):
-//            return makeGoodsCell(with: items[indexPath.row], for: indexPath)
-//        }
-//    }
-//}
 
 // MARK: - UICollectionViewDelegate
 extension MenuViewController: UICollectionViewDelegate {

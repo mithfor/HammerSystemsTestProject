@@ -99,7 +99,6 @@ private extension MealGoodsCell {
             priceLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             priceLabel.heightAnchor.constraint(equalToConstant: 32)
-
         ])
     }
 }
@@ -117,8 +116,6 @@ extension MealGoodsCell: SelfConfigurableCell {
             imageView.image = viewModel.image
         }
     }
-
-
 }
 
 class PaddingLabel: UILabel {
