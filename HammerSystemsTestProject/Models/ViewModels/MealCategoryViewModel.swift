@@ -8,10 +8,12 @@
 import Foundation
 
 class MealCategoryViewModel: ViewModel {
-
-    var title: String
-
-    internal init(title: String) {
+    internal init(idCategory: String, title: String) {
+        self.idCategory = idCategory
         self.title = title
     }
+    
+    
+    var idCategory: String
+    var title: String
 }

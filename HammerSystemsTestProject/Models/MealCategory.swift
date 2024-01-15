@@ -15,6 +15,6 @@ struct MealCategory: Codable {
 }
 
 // MARK: - Category
-struct CategoryResponse: Codable {
+struct CategoriesResponse: Codable {
     let categories: [MealCategory]
 }

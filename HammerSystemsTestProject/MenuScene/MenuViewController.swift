@@ -9,8 +9,10 @@ import UIKit
 
 typealias BannerViewModels = [BannerViewModel]
 typealias MealCategoryViewModels = [MealCategoryViewModel]
+typealias MealGoodViewModels = [MealGoodViewModel]
 typealias Categories = [MealCategory]
 typealias Banners = [Banner]
+typealias Meals = [Meal]
 
 // MARK: - Protocols
 protocol MenuViewControllerInput {
@@ -18,13 +20,13 @@ protocol MenuViewControllerInput {
 
     func displayCategories(_ categories: MealCategoryViewModels)
 
-    @available(*, deprecated, message: "Use func configure(with viewModel: MealCategoryViewModel) instead")
-    func displayCategories(_ categories: Categories)
+    func displayMeals(_ meals: MealGoodViewModels)
 }
 
 protocol MenuViewControllerOutput {
     func fetchBanners()
     func fetchCategories()
+    func fetchMealGoods(by category: String)
 }
 
 class MenuViewController: UIViewController {
@@ -52,8 +54,10 @@ class MenuViewController: UIViewController {
 
         if let object = object as? BannerViewModel {
             return self.makeBannerCell(with: object, for: indexPath)
-        } else  if let object = object as? MealCategoryViewModel {
+        } else if let object = object as? MealCategoryViewModel {
             return self.makeCategoryCell(with: object, for: indexPath)
+        } else if let object = object as? MealGoodViewModel {
+            return self.makeGoodsCell(with: object, for: indexPath)
         }
         return nil
     }
@@ -66,7 +70,8 @@ class MenuViewController: UIViewController {
         BannerViewModel(imageName: Banner(image: "moon").image)
     ]
     private var categoryViewModels: MealCategoryViewModels = []
-    private var categories: Categories = []
+    private var mealViewModels: MealGoodViewModels = []
+//    private var categories: Categories = []
 
 //    private var sections = MockData.shared.pageData
 
@@ -76,8 +81,9 @@ class MenuViewController: UIViewController {
         initialize()
         MenuConfigurator.shared.configure(viewController: self)
         
-//        output?.fetchBanners()
+        output?.fetchBanners()
         output?.fetchCategories()
+        output?.fetchMealGoods(by: "Seafood")
     }
 }
 
@@ -108,7 +114,7 @@ private extension MenuViewController {
     private func setupDiffableDatasource() {
         collectionView.dataSource = diffableDataSource
 
-        reloadData()
+//        reloadData()
     }
 
     func setupDelegates() {
@@ -142,7 +148,7 @@ private extension MenuViewController {
             }
         }
 
-    func makeGoodsCell(with viewModel: MealGoodViewModel, for indexPath: IndexPath) -> UICollectionViewCell {
+    func makeGoodsCell(with viewModel: MealGoodViewModel, for indexPath: IndexPath) -> MealGoodsCell {
         if let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: MealGoodsCell.identifier,
             for: indexPath) as? MealGoodsCell {
@@ -282,17 +288,27 @@ extension MenuViewController: MenuViewControllerInput {
         var snapshot = NSDiffableDataSourceSnapshot<AppSection, AnyHashable>()
 
         snapshot.appendSections([.banners, .categories, .mealgoods])
-        if !snapshot.itemIdentifiers(inSection: .banners).isEmpty {
-            snapshot.reconfigureItems(self.bannerViewModels)
-        } else {
+//        if !snapshot.itemIdentifiers(inSection: .banners).isEmpty {
+//            snapshot.reconfigureItems(self.bannerViewModels)
+//        } else {
             snapshot.appendItems(self.bannerViewModels, toSection: AppSection.banners)
-        }
-
-        if !snapshot.itemIdentifiers(inSection: .categories).isEmpty {
-            snapshot.reconfigureItems(self.categoryViewModels)
-        } else {
+//        }
+//
+//        if !snapshot.itemIdentifiers(inSection: .categories).isEmpty {
+//            snapshot.reconfigureItems(self.categoryViewModels)
+//        } else {
+        if !categoryViewModels.isEmpty {
             snapshot.appendItems(self.categoryViewModels, toSection: AppSection.categories)
         }
+//        }
+//
+//        if !snapshot.itemIdentifiers(inSection: .mealgoods).isEmpty {
+//            snapshot.reconfigureItems(self.mealViewModels)
+//        } else {
+        if !mealViewModels.isEmpty {
+            snapshot.appendItems(self.mealViewModels, toSection: AppSection.mealgoods)
+        }
+//        }
 
         self.diffableDataSource.applySnapshotUsingReloadData(snapshot)
     }
@@ -301,17 +317,8 @@ extension MenuViewController: MenuViewControllerInput {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.categoryViewModels = categories
+
             self.reloadData()
-        }
-    }
-
-    func displayCategories(_ categories: Categories) {
-        print(#function)
-        print(categories)
-
-        DispatchQueue.main.async {
-            self.categories = categories
-//            self.categoriesCollectionView.reloadData()
         }
     }
 
@@ -322,8 +329,18 @@ extension MenuViewController: MenuViewControllerInput {
             guard let self = self else { return }
             self.bannerViewModels = banners
 
-//            self.reloadData()
+            self.reloadData()
 
+        }
+    }
+
+    func displayMeals(_ meals: MealGoodViewModels) {
+        let meals = meals
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.mealViewModels = meals
+
+            self.reloadData()
         }
     }
 }

@@ -19,6 +19,5 @@ class MealGoodViewModel: ViewModel {
         self.description = description
         self.priceTitle = priceTitle
     }
-    
 
 }

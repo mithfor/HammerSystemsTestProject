@@ -21,12 +21,12 @@ struct MockData {
 
     private var mealCategories: MenuSection = {
         .categories([
-            .init(title: "first"),
-            .init(title: "second"),
-            .init(title: "third"),
-            .init(title: "forth"),
-            .init(title: "fifth"),
-            .init(title: "sixth")
+            .init(idCategory: "1", title: "first"),
+            .init(idCategory: "2", title: "second"),
+            .init(idCategory: "3", title: "third"),
+            .init(idCategory: "4", title: "forth"),
+            .init(idCategory: "5", title: "fifth"),
+            .init(idCategory: "6", title: "sixth")
         ])
     }()
 

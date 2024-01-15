@@ -26,9 +26,36 @@ class ViewModelFactory {
         var viewModels: [MealCategoryViewModel] = []
 
         categories.forEach { category in
-            viewModels.append(MealCategoryViewModel(title: category.strCategory))
+            viewModels.append(MealCategoryViewModel(idCategory: category.idCategory, title: category.strCategory))
         }
 
         return viewModels
+    }
+
+    func makeMealViewModels(_ meals: [Meal], completion: @escaping (([MealGoodViewModel]) -> Void)) {
+        let meals = meals
+        var viewModels: [MealGoodViewModel] = []
+
+        let dispatchGroup = DispatchGroup()
+        meals.forEach { meal in
+            dispatchGroup.enter()
+            ImageDownloader.downloadImage(meal.strMealThumb) {
+                  image, urlString in
+                     if let imageObject = image {
+
+                            viewModels.append(MealGoodViewModel(
+                                image: imageObject,
+                                title: meal.strMeal,
+                                description: meal.strMealThumb,
+                                priceTitle: "Valuless"))
+                     }
+                dispatchGroup.leave()
+                  }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            completion(viewModels)
+
+        }
     }
 }

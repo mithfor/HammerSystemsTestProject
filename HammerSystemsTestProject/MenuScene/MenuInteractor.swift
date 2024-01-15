@@ -12,6 +12,7 @@ typealias MenuInteractorInput = MenuViewControllerOutput
 protocol MenuInteractorOutput {
     func presentBanners(_ banners: Banners)
     func presentCategories(_ categories: Categories)
+    func presentMeals(_ meals: Meals)
 }
 
 class MenuInteractor {
@@ -19,6 +20,18 @@ class MenuInteractor {
 }
 
 extension MenuInteractor: MenuInteractorInput {
+    func fetchMealGoods(by category: String) {
+        // TODO: - Extract to worker!!!
+
+        NetworkManager.shared.loadCategoryMeals(for: category) { result in
+                  switch result {
+                  case .failure(let error):
+                      print("Error fetching meals \(error)")
+                  case .success(let response):
+                      self.output?.presentMeals(response.meals)                  }
+              }
+    }
+
     func fetchCategories() {
 
         // TODO: - Extract to worker!!!
@@ -34,7 +47,6 @@ extension MenuInteractor: MenuInteractorInput {
 
     func fetchBanners() {
 
-        print(#function)
         // TODO: - Extract to worker!!!
         APIManager.loadBanners { [weak self] banners in
             self?.output?.presentBanners(banners)

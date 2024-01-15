@@ -62,8 +62,8 @@
             filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "makeGoodsCell(with:for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,55 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F9FFAAB8-1E2C-45EA-8DD4-69DAC7322136"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "reloadData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "83B72C8F-8006-4DC5-86D7-2B185C65D969"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "createLayout()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "67752EBC-E2C0-414C-B356-255267E8D6FB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "createMealCategoriesSection()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8E334EBF-F7B1-4D91-AA9B-0CC081B1DF90"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
@@ -130,6 +82,86 @@
             endingLineNumber = "288"
             landmarkName = "reloadData()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83B72C8F-8006-4DC5-86D7-2B185C65D969"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "createLayout()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9363A77F-FCAC-49CE-A324-D78939100F8D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "createMealGoodsSection(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B16D042D-E13F-46ED-84D4-61A57066015E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/Models/ViewModels/ViewModelFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "makeMealViewModels(_:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B16D042D-E13F-46ED-84D4-61A57066015E - bb15e8ccee4a908c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (HammerSystemsTestProject.Meal) -&gt; () in HammerSystemsTestProject.ViewModelFactory.makeMealViewModels(_: Swift.Array&lt;HammerSystemsTestProject.Meal&gt;, completion: (Swift.Array&lt;HammerSystemsTestProject.MealGoodViewModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HammerSystemsTestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/Models/ViewModels/ViewModelFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  uuid = "B16D042D-E13F-46ED-84D4-61A57066015E - b89ced3c9537ed3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in closure #1 (HammerSystemsTestProject.Meal) -&gt; () in HammerSystemsTestProject.ViewModelFactory.makeMealViewModels(_: Swift.Array&lt;HammerSystemsTestProject.Meal&gt;, completion: (Swift.Array&lt;HammerSystemsTestProject.MealGoodViewModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HammerSystemsTestProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/Models/ViewModels/ViewModelFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "187">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

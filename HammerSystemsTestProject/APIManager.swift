@@ -28,17 +28,17 @@ class NetworkManager {
 //        fetchData(urlString: urlString, completion: completion)
 //    }
 //
-//    func fetchCategoryMeals(for category: String, completion: @escaping (Result<MealResponse, Error>) -> () ) {
-//        let urlString = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(category)"
-//        fetchData(urlString: urlString, completion: completion)
-//    }
+    func loadCategoryMeals(for category: String, completion: @escaping (Result<MealsResponse, Error>) -> () ) {
+        let urlString = "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(category)"
+        fetchData(urlString: urlString, completion: completion)
+    }
 //
 //    func fetchRandomMeal(completion: @escaping (Result<MealResponse, Error>) -> () ) {
 //        let urlString = "https://www.themealdb.com/api/json/v1/1/random.php"
 //        fetchData(urlString: urlString, completion: completion)
 //    }
 
-    func loadCategories(completion: @escaping (Result<CategoryResponse, Error>) -> () ) {
+    func loadCategories(completion: @escaping (Result<CategoriesResponse, Error>) -> () ) {
         let urlString = "https://www.themealdb.com/api/json/v1/1/categories.php"
         fetchData(urlString: urlString, completion: completion)
     }
@@ -77,4 +77,29 @@ extension Data {
     func decoded<T: Decodable>() throws -> T {
         return try JSONDecoder().decode(T.self, from: self)
     }
+}
+
+class ImageDownloader {
+    static func downloadImage(_ urlString: String, completion: ((_ image: UIImage?, _ urlString: String?) -> ())?) {
+       guard let url = URL(string: urlString) else {
+          completion?(nil, urlString)
+          return
+      }
+      URLSession.shared.dataTask(with: url) { (data, response,error) in
+         if let error = error {
+            print("error in downloading image: \(error)")
+            completion?(nil, urlString)
+            return
+         }
+         guard let httpResponse = response as? HTTPURLResponse,(200...299).contains(httpResponse.statusCode) else {
+            completion?(nil, urlString)
+            return
+         }
+         if let data = data, let image = UIImage(data: data) {
+            completion?(image, urlString)
+            return
+         }
+         completion?(nil, urlString)
+      }.resume()
+   }
 }
