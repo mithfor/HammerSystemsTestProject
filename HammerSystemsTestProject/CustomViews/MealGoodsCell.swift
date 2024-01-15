@@ -39,9 +39,9 @@ class MealGoodsCell: UICollectionViewListCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-//        label.textColor = UIColor(red: 0.133, green: 0.157, blue: 0.192, alpha: 1)
         label.textColor = .label
-        label.numberOfLines = 0
+        label.lineBreakMode = .byTruncatingTail
+
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,7 +50,6 @@ class MealGoodsCell: UICollectionViewListCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-//        label.textColor = UIColor(red: 0.665, green: 0.668, blue: 0.679, alpha: 1)
         label.textColor = .secondaryLabel
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
