@@ -22,6 +22,7 @@
 		D3929C192B53EB4100D96A54 /* MealGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */; };
 		D3929C1B2B542E8800D96A54 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C1A2B542E8800D96A54 /* Banner.swift */; };
 		D3929C1D2B5431B100D96A54 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C1C2B5431B100D96A54 /* ViewModelFactory.swift */; };
+		D39C284C2B5546980087A858 /* MenuViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39C284B2B5546980087A858 /* MenuViewControllerLayout.swift */; };
 		D39D1DFD2B55170D00168512 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D1DFC2B55170D00168512 /* Meal.swift */; };
 		D3A644BB2B54AA0300E03DBF /* SelfConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A644BA2B54AA0300E03DBF /* SelfConfigurableCell.swift */; };
 		D3A92EE82B52D0AE00827D12 /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A92EE72B52D0AE00827D12 /* MealCategory.swift */; };
@@ -52,6 +53,7 @@
 		D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealGoodsCell.swift; sourceTree = "<group>"; };
 		D3929C1A2B542E8800D96A54 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		D3929C1C2B5431B100D96A54 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
+		D39C284B2B5546980087A858 /* MenuViewControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewControllerLayout.swift; sourceTree = "<group>"; };
 		D39D1DFC2B55170D00168512 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		D3A644BA2B54AA0300E03DBF /* SelfConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfigurableCell.swift; sourceTree = "<group>"; };
 		D3A92EE72B52D0AE00827D12 /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				D33F51282B529A7A00D16120 /* MenuConfigurator.swift */,
 				D33F51272B529A7A00D16120 /* MenuInteractor.swift */,
 				D33F51292B529A7A00D16120 /* MenuPresenter.swift */,
+				D39C284B2B5546980087A858 /* MenuViewControllerLayout.swift */,
 			);
 			path = MenuScene;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				D33F51312B529F3000D16120 /* CategoryCell.swift in Sources */,
 				D3929C0D2B53C06500D96A54 /* MenuSection.swift in Sources */,
 				D33F512B2B529A7A00D16120 /* MenuPresenter.swift in Sources */,
+				D39C284C2B5546980087A858 /* MenuViewControllerLayout.swift in Sources */,
 				D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */,
 				D33F512C2B529A7A00D16120 /* MenuConfigurator.swift in Sources */,
 				D33F51262B529A6D00D16120 /* MenuViewController.swift in Sources */,

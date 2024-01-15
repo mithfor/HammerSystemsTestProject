@@ -71,9 +71,7 @@ class MenuViewController: UIViewController {
     ]
     private var categoryViewModels: MealCategoryViewModels = []
     private var mealViewModels: MealGoodViewModels = []
-//    private var categories: Categories = []
-
-//    private var sections = MockData.shared.pageData
+    private var currentCategory: String?
 
     // MARK: - lifecycle
     override func viewDidLoad() {
@@ -83,7 +81,7 @@ class MenuViewController: UIViewController {
         
         output?.fetchBanners()
         output?.fetchCategories()
-        output?.fetchMealGoods(by: "Seafood")
+        output?.fetchMealGoods(by: currentCategory ?? "Beef")
     }
 }
 
@@ -160,99 +158,39 @@ private extension MenuViewController {
     }
 }
 
-// MARK: - Create Layout
-private extension MenuViewController {
-    func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
-            guard let self = self else { return nil }
-            let section = AppSection.allCases[sectionIndex]
 
-            switch section {
-            case .banners:
-                return self.createBannersSection()
-            case .categories:
-                return self.createMealCategoriesSection()
-            case .mealgoods:
-                return self.createMealGoodsSection(with: layoutEnvironment)
-            }
-        }
-    }
-
-    func createLayoutSection(group: NSCollectionLayoutGroup,
-                             behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior? = nil,
-                             interGroupSpacing: CGFloat) -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
-        section.interGroupSpacing = interGroupSpacing
-        return section
-    }
-
-    func createBannersSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init(widthDimension: .fractionalWidth(1),
-                              heightDimension: .fractionalHeight(1)))
-
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: .init(
-                widthDimension: .estimated(UIConstants.BannersSection.Banner.width),
-                heightDimension: .estimated(UIConstants.BannersSection.Banner.height)),
-            subitems: [item])
-
-        let section = createLayoutSection(
-            group: group,
-            behavior: .groupPaging,
-            interGroupSpacing: UIConstants.BannersSection.interSpacing)
-
-        return section
-    }
-
-    func createMealCategoriesSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: .init(widthDimension: .fractionalWidth(1),
-                              heightDimension: .fractionalHeight(1)))
-
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: .init(
-                widthDimension: .estimated(UIConstants.CategoriesSection.Category.width),
-                heightDimension: .estimated(UIConstants.CategoriesSection.Category.height)),
-            subitems: [item])
-
-        let section = createLayoutSection(
-            group: group,
-            behavior: .groupPagingCentered,
-            interGroupSpacing: UIConstants.CategoriesSection.interSpacing)
-
-        return section
-    }
-
-    func createMealGoodsSection(with environment : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
-
-        let listConfig = UICollectionLayoutListConfiguration(appearance: .plain)
-
-        let section = NSCollectionLayoutSection.list(using: listConfig, layoutEnvironment: environment)
-
-        section.contentInsets.top = 20
-
-        return section
-    }
-}
 
 
 // MARK: - UICollectionViewDelegate
 extension MenuViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
-            cell.select()
+
+        switch AppSection.allCases[indexPath.section] {
+
+        case .banners:
+            break
+        case .categories:
+            if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+                cell.select { [weak self] category in
+                    self?.currentCategory = category
+//                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .)
+                    self?.output?.fetchMealGoods(by: category)
+                }
+            }
+        case .mealgoods:
+            break
         }
+
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
-            cell.select()
+            cell.select { [weak self] category in
+                self?.output?.fetchMealGoods(by: category)
+            }
         }
     }
-
 }
 
 // MARK: - MenuViewControllerInput
@@ -271,17 +209,17 @@ extension MenuViewController: MenuViewControllerInput {
 //        if !snapshot.itemIdentifiers(inSection: .categories).isEmpty {
 //            snapshot.reconfigureItems(self.categoryViewModels)
 //        } else {
-        if !categoryViewModels.isEmpty {
+//        if !categoryViewModels.isEmpty {
             snapshot.appendItems(self.categoryViewModels, toSection: AppSection.categories)
-        }
+//        }
 //        }
 //
 //        if !snapshot.itemIdentifiers(inSection: .mealgoods).isEmpty {
 //            snapshot.reconfigureItems(self.mealViewModels)
 //        } else {
-        if !mealViewModels.isEmpty {
+//        if !mealViewModels.isEmpty {
             snapshot.appendItems(self.mealViewModels, toSection: AppSection.mealgoods)
-        }
+//        }
 //        }
 
         self.diffableDataSource.applySnapshotUsingReloadData(snapshot)
@@ -293,6 +231,7 @@ extension MenuViewController: MenuViewControllerInput {
             self.categoryViewModels = categories
 
             self.reloadData()
+            self.collectionView.selectItem(at: IndexPath(item: 0, section: AppSection.categories.rawValue), animated: true, scrollPosition: .centeredHorizontally)
         }
     }
 

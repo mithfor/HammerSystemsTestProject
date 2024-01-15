@@ -24,15 +24,17 @@ class CategoryCell: UICollectionViewCell {
         return label
     }()
 
-    func select() {
+    func select(completionData: @escaping ((String) -> Void)) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if self.isSelected {
                 self.label.backgroundColor = UIColor(red: 0.992, green: 0.227, blue: 0.412, alpha: 0.2)
                 self.label.layer.borderWidth = 0
+                completionData(self.label.text ?? "Seafood")
             } else {
                 self.label.backgroundColor = .clear
                 self.label.layer.borderWidth = 1
+               completionData(self.label.text ?? "Vegan")
             }
         }
     }
@@ -45,6 +47,12 @@ class CategoryCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.label.text = "Beef"
     }
 }
 
