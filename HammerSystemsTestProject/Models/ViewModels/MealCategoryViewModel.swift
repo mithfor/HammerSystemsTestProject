@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct MealCategoryViewModel: ViewModel {
+class MealCategoryViewModel: ViewModel {
 
     var title: String
+
+    internal init(title: String) {
+        self.title = title
+    }
 }

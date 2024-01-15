@@ -7,12 +7,20 @@
 
 import Foundation
 
-protocol ViewModel: Hashable {
-    static var id: UUID { get }
+protocol ViewModel: Identifiable<UUID>, Hashable {
+    var id: UUID { get }
 }
 
 extension ViewModel {
-    static var id: UUID {
+    var id: UUID {
         UUID()
+    }
+
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
+
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
     }
 }

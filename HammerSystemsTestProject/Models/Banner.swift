@@ -7,6 +7,12 @@
 
 import UIKit
 
-struct Banner {
-    let image: UIImage
+struct Banner: Codable {
+    let image: String
 }
+
+struct BannerResponse: Codable {
+    let banners: [Banner]
+}
+
+

@@ -7,10 +7,18 @@
 
 import UIKit
 
-struct MealGoodViewModel: ViewModel {
-
+class MealGoodViewModel: ViewModel {
     var image: UIImage
     var title: String
     var description: String
     var priceTitle: String
+
+    internal init(image: UIImage, title: String, description: String, priceTitle: String) {
+        self.image = image
+        self.title = title
+        self.description = description
+        self.priceTitle = priceTitle
+    }
+    
+
 }

@@ -7,14 +7,18 @@
 
 import UIKit
 
-typealias BannersViewModel = [BannerViewModel]
+typealias BannerViewModels = [BannerViewModel]
+typealias MealCategoryViewModels = [MealCategoryViewModel]
 typealias Categories = [MealCategory]
 typealias Banners = [Banner]
 
-
 // MARK: - Protocols
 protocol MenuViewControllerInput {
-    func displayBanners(_ banners: BannersViewModel)
+    func displayBanners(_ banners: BannerViewModels)
+
+    func displayCategories(_ categories: MealCategoryViewModels)
+
+    @available(*, deprecated, message: "Use func configure(with viewModel: MealCategoryViewModel) instead")
     func displayCategories(_ categories: Categories)
 }
 
@@ -37,10 +41,34 @@ class MenuViewController: UIViewController {
         return collectionView
     }()
 
-    private var bannersViewModel: BannersViewModel = []
+    enum AppSection: Int, CaseIterable {
+        case banners
+        case categories
+        case mealgoods
+    }
+
+    private lazy var diffableDataSource: UICollectionViewDiffableDataSource<AppSection, AnyHashable> = .init(collectionView: self.collectionView) {
+        (collectionView, indexPath, object) -> UICollectionViewCell? in
+
+        if let object = object as? BannerViewModel {
+            return self.makeBannerCell(with: object, for: indexPath)
+        } else  if let object = object as? MealCategoryViewModel {
+            return self.makeCategoryCell(with: object, for: indexPath)
+        }
+        return nil
+    }
+
+
+    private var bannerViewModels: [BannerViewModel] = [
+        BannerViewModel(imageName: Banner(image: "pizza-banner").image),
+        BannerViewModel(imageName: Banner(image: "star").image),
+        BannerViewModel(imageName: Banner(image: "pizza-banner").image),
+        BannerViewModel(imageName: Banner(image: "moon").image)
+    ]
+    private var categoryViewModels: MealCategoryViewModels = []
     private var categories: Categories = []
 
-    private var sections = MockData.shared.pageData
+//    private var sections = MockData.shared.pageData
 
     // MARK: - lifecycle
     override func viewDidLoad() {
@@ -48,14 +76,14 @@ class MenuViewController: UIViewController {
         initialize()
         MenuConfigurator.shared.configure(viewController: self)
         
-        output?.fetchBanners()
+//        output?.fetchBanners()
         output?.fetchCategories()
     }
 }
 
 // MARK: - Private methods
 
-extension UICollectionView {
+fileprivate extension UICollectionView {
     func registerCells() {
         self.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         self.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
@@ -73,20 +101,29 @@ private extension MenuViewController {
 
     func initialize() {
         setupView()
+        setupDiffableDatasource()
         setupDelegates()
+    }
+
+    private func setupDiffableDatasource() {
+        collectionView.dataSource = diffableDataSource
+
+        reloadData()
     }
 
     func setupDelegates() {
         collectionView.delegate = self
-        collectionView.dataSource = self
+//        collectionView.dataSource = self
     }
 
+
+// MARK: - Make Cells
     func makeBannerCell(with viewModel: BannerViewModel, for indexPath: IndexPath) -> BannerCell {
             if let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BannerCell.identifier,
                 for: indexPath) as? BannerCell {
 
-                cell.configure(image: viewModel.image)
+                cell.configure(with: viewModel)
                 return cell
             } else {
                 return BannerCell()
@@ -105,7 +142,6 @@ private extension MenuViewController {
             }
         }
 
-    // TODO: - Implement MeallGoodCell !!!
     func makeGoodsCell(with viewModel: MealGoodViewModel, for indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: MealGoodsCell.identifier,
@@ -124,21 +160,18 @@ private extension MenuViewController {
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
             guard let self = self else { return nil }
-            let section = self.sections[sectionIndex]
+            let section = AppSection.allCases[sectionIndex]
 
             switch section {
-
-            case .banners(_):
+            case .banners:
                 return self.createBannersSection()
-            case .categories(_):
+            case .categories:
                 return self.createMealCategoriesSection()
-            case .mealgoods(_):
+            case .mealgoods:
                 return self.createMealGoodsSection(with: layoutEnvironment)
             }
         }
     }
-
-
 
     func createLayoutSection(group: NSCollectionLayoutGroup,
                              behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior? = nil,
@@ -197,35 +230,33 @@ private extension MenuViewController {
 
         return section
     }
-
-
 }
 
 // MARK: - UICollectionViewDataSource
-extension MenuViewController: UICollectionViewDataSource {
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        sections[section].count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        switch sections[indexPath.section] {
-
-        case .banners(let items):
-            return makeBannerCell(with: items[indexPath.row], for: indexPath)
-        case .categories(let items):
-            return makeCategoryCell(with: items[indexPath.row], for: indexPath)
-        case .mealgoods(let items):
-            return makeGoodsCell(with: items[indexPath.row], for: indexPath)
-        }
-    }
-}
+//extension MenuViewController: UICollectionViewDataSource {
+//
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        sections.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//
+//        sections[section].count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        switch sections[indexPath.section] {
+//
+//        case .banners(let items):
+//            return makeBannerCell(with: items[indexPath.row], for: indexPath)
+//        case .categories(let items):
+//            return makeCategoryCell(with: items[indexPath.row], for: indexPath)
+//        case .mealgoods(let items):
+//            return makeGoodsCell(with: items[indexPath.row], for: indexPath)
+//        }
+//    }
+//}
 
 // MARK: - UICollectionViewDelegate
 extension MenuViewController: UICollectionViewDelegate {
@@ -246,6 +277,34 @@ extension MenuViewController: UICollectionViewDelegate {
 
 // MARK: - MenuViewControllerInput
 extension MenuViewController: MenuViewControllerInput {
+
+    func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot<AppSection, AnyHashable>()
+
+        snapshot.appendSections([.banners, .categories, .mealgoods])
+        if !snapshot.itemIdentifiers(inSection: .banners).isEmpty {
+            snapshot.reconfigureItems(self.bannerViewModels)
+        } else {
+            snapshot.appendItems(self.bannerViewModels, toSection: AppSection.banners)
+        }
+
+        if !snapshot.itemIdentifiers(inSection: .categories).isEmpty {
+            snapshot.reconfigureItems(self.categoryViewModels)
+        } else {
+            snapshot.appendItems(self.categoryViewModels, toSection: AppSection.categories)
+        }
+
+        self.diffableDataSource.applySnapshotUsingReloadData(snapshot)
+    }
+
+    func displayCategories(_ categories: MealCategoryViewModels) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.categoryViewModels = categories
+            self.reloadData()
+        }
+    }
+
     func displayCategories(_ categories: Categories) {
         print(#function)
         print(categories)
@@ -256,12 +315,15 @@ extension MenuViewController: MenuViewControllerInput {
         }
     }
 
-    func displayBanners(_ banners: BannersViewModel) {
+    func displayBanners(_ banners: BannerViewModels) {
         print(#function)
+        let banners = banners
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.bannerViewModels = banners
 
-        DispatchQueue.main.async {
-            self.bannersViewModel = banners
-//            self.bannerCollectionView.reloadData()
+//            self.reloadData()
+
         }
     }
 }

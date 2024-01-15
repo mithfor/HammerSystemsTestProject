@@ -7,6 +7,12 @@
 
 import UIKit
 
-struct BannerViewModel: ViewModel {
-    var image: UIImage
+class BannerViewModel: ViewModel {
+
+    var imageName: String
+
+    internal init(imageName: String) {
+        self.imageName = imageName
+    }
 }
+

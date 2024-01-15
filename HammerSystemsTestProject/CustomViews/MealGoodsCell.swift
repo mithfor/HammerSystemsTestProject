@@ -10,7 +10,6 @@ import SwiftUI
 
 // MARK: - MealGoodsCell
 class MealGoodsCell: UICollectionViewListCell {
-    static let identifier = "MealGoodsCell"
 
     // MARK: - Public methods
     func configure(with viewModel: MealGoodViewModel) {
@@ -40,7 +39,8 @@ class MealGoodsCell: UICollectionViewListCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 0.133, green: 0.157, blue: 0.192, alpha: 1)
+//        label.textColor = UIColor(red: 0.133, green: 0.157, blue: 0.192, alpha: 1)
+        label.textColor = .label
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,8 @@ class MealGoodsCell: UICollectionViewListCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        label.textColor = UIColor(red: 0.665, green: 0.668, blue: 0.679, alpha: 1)
+//        label.textColor = UIColor(red: 0.665, green: 0.668, blue: 0.679, alpha: 1)
+        label.textColor = .secondaryLabel
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = false
@@ -102,6 +103,23 @@ private extension MealGoodsCell {
 
         ])
     }
+}
+
+extension MealGoodsCell: SelfConfigurableCell {
+    static var identifier: String {
+        "MealGoodsCell"
+    }
+
+    func configure(with viewModel: any ViewModel) {
+        if let viewModel = viewModel as? MealGoodViewModel {
+            titleLabel.text = viewModel.title
+            descriptionLabel.text = viewModel.description
+            priceLabel.text = viewModel.priceTitle
+            imageView.image = viewModel.image
+        }
+    }
+
+
 }
 
 class PaddingLabel: UILabel {

@@ -13,9 +13,9 @@ struct MockData {
 
     private var banners: MenuSection = {
         .banners([
-            .init(image: UIImage(named: "pizza-banner")!),
-            .init(image: UIImage(named: "pizza-banner")!),
-            .init(image: UIImage(named: "pizza-banner")!)
+            .init(imageName: "pizza-banner"),
+            .init(imageName: "pizza-banner"),
+            .init(imageName: "pizza-banner"),
         ])
     }()
 

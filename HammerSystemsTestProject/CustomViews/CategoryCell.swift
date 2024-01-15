@@ -9,8 +9,6 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell {
 
-    static let identifier = "CategoryCell"
-
     // MARK: - Public properties
     var label: UILabel = {
         let label = UILabel()
@@ -33,10 +31,6 @@ class CategoryCell: UICollectionViewCell {
     func configure(with category: MealCategory) {
         self.label.text = category.strCategory
         self.category = category
-    }
-
-    func configure(with viewModel: MealCategoryViewModel) {
-        self.label.text = viewModel.title
     }
 
     func select() {
@@ -78,6 +72,18 @@ private extension CategoryCell {
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             ])
+    }
+}
+
+extension CategoryCell: SelfConfigurableCell {
+    static var identifier: String {
+        "CategoryCell"
+    }
+
+    func configure(with viewModel: any ViewModel) {
+        if let viewModel = viewModel as? MealCategoryViewModel {
+            self.label.text = viewModel.title
+        }
     }
 }
 

@@ -9,13 +9,6 @@ import UIKit
 
 class BannerCell: UICollectionViewCell {
 
-    static let identifier = "BannerCell"
-
-    // MARK: - Public methods
-    func configure(image: UIImage) {
-        self.imageView.image = image
-    }
-
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,4 +38,18 @@ private extension BannerCell {
             imageView.widthAnchor.constraint(equalToConstant: UIConstants.BannersSection.Banner.width),
             ])
     }
+}
+
+extension BannerCell: SelfConfigurableCell {
+    static var identifier: String {
+        "BannerCell"
+    }
+
+    func configure(with viewModel: any ViewModel) {
+        if let viewModel = viewModel as? BannerViewModel {
+            self.imageView.image = UIImage(named: viewModel.imageName) ?? UIImage(systemName: viewModel.imageName) ?? UIImage()
+        }
+    }
+
+
 }
