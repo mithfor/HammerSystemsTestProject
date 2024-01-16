@@ -1,27 +1,28 @@
 //
-//  MealGoodsCell.swift
+//  MealTableViewCell.swift
 //  HammerSystemsTestProject
 //
-//  Created by Dmitriy Voronin on 14.01.2024.
+//  Created by Dmitriy Voronin on 16.01.2024.
 //
 
 import UIKit
-import SwiftUI
 
-// MARK: - MealGoodsCell
-class MealGoodsCell: UICollectionViewListCell {
-
+// MARK: - MealTableViewCell
+class MealTableViewCell: UITableViewCell {
+    
     // MARK: - Public methods
     func configure(with viewModel: MealGoodViewModel) {
-        self.imageView.image = viewModel.image
+        self.mealImageView.image = viewModel.image
         self.titleLabel.text = viewModel.title
         self.descriptionLabel.text = viewModel.description
         self.priceLabel.text = viewModel.priceTitle
     }
 
     // MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
         contentView.backgroundColor = UIConstants.Colors.mainBackground
         initialize()
     }
@@ -30,8 +31,13 @@ class MealGoodsCell: UICollectionViewListCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+    }
+
     // MARK: - Private properties
-    private let imageView: UIImageView = {
+    private let mealImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -72,25 +78,25 @@ class MealGoodsCell: UICollectionViewListCell {
 }
 
 // MARK: - Private methods
-private extension MealGoodsCell {
+private extension MealTableViewCell {
     func initialize() {
+        translatesAutoresizingMaskIntoConstraints = false
 
-
-        contentView.addSubview(imageView)
+        contentView.addSubview(mealImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(priceLabel)
 
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.height),
-            imageView.widthAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.width),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            mealImageView.heightAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.height),
+            mealImageView.widthAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.width),
+            mealImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            mealImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mealImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
 
 
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: mealImageView.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
 
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
@@ -105,9 +111,9 @@ private extension MealGoodsCell {
     }
 }
 
-extension MealGoodsCell: SelfConfigurableCell {
+extension MealTableViewCell: SelfConfigurableCell {
     static var identifier: String {
-        "MealGoodsCell"
+        "MealTableViewCell"
     }
 
     func configure(with viewModel: any ViewModel) {
@@ -115,27 +121,8 @@ extension MealGoodsCell: SelfConfigurableCell {
             titleLabel.text = viewModel.title
             descriptionLabel.text = viewModel.description
             priceLabel.text = viewModel.priceTitle
-            imageView.image = viewModel.image
+            mealImageView.image = viewModel.image
         }
-    }
-}
-
-// MARK: - Previews
-struct MealGoodsCellContenViewPreviews: PreviewProvider {
-    struct MealGoodsCellContainer: UIViewRepresentable {
-        func makeUIView(context: Context) -> some UIView {
-            MealGoodsCell()
-        }
-        func updateUIView(_ uiView: UIViewType, context: Context) {}
-    }
-
-    static var previews: some View {
-        MealGoodsCellContainer().padding(.init(
-            top: 100,
-            leading: 16,
-            bottom: UIScreen.main.bounds.height - 300,
-            trailing: UIScreen.main.bounds.width - 166
-        ))
     }
 }
 

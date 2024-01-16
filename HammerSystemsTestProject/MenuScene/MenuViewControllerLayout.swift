@@ -16,7 +16,7 @@ extension MenuViewController {
 
             switch section {
             case .banners:
-                return self.createBannersSection()
+                return self.isHiddenBannersSection ? self.createEmptyBannersSection() : self.createBannersSection()
             case .categories:
                 return self.createMealCategoriesSection()
             case .mealgoods:
@@ -53,6 +53,25 @@ extension MenuViewController {
         return section
     }
 
+    func createEmptyBannersSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: .init(widthDimension: .fractionalWidth(1),
+                              heightDimension: .fractionalHeight(1)))
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: .init(
+                widthDimension: .estimated(0),
+                heightDimension: .estimated(0)),
+            subitems: [item])
+
+        let section = createLayoutSection(
+            group: group,
+            behavior: .groupPaging,
+            interGroupSpacing: UIConstants.BannersSection.interSpacing)
+
+        return section
+    }
+
     func createMealCategoriesSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(widthDimension: .fractionalWidth(1),
@@ -73,10 +92,27 @@ extension MenuViewController {
     }
 
     func createMealGoodsSection(with environment : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+//
+//        let listConfig = UICollectionLayoutListConfiguration(appearance: .plain)
+//        let section = NSCollectionLayoutSection.list(using: listConfig, layoutEnvironment: environment)
+//
+//        section.contentInsets.top = 20
 
-        let listConfig = UICollectionLayoutListConfiguration(appearance: .plain)
+        let item = NSCollectionLayoutItem(
+            layoutSize: .init(widthDimension: .fractionalWidth(1),
+                              heightDimension: .fractionalHeight(1)))
 
-        let section = NSCollectionLayoutSection.list(using: listConfig, layoutEnvironment: environment)
+
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: .init(
+                widthDimension: .estimated(UIConstants.MealGoodsSection.MealGoods.width),
+                heightDimension: .fractionalHeight(0.66)),
+            subitems: [item])
+
+        let section = createLayoutSection(
+            group: group,
+            behavior: .groupPagingCentered,
+            interGroupSpacing: UIConstants.MealGoodsSection.interSpacing)
 
         section.contentInsets.top = 20
 

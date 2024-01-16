@@ -47,7 +47,7 @@ class ViewModelFactory {
                                 image: imageObject,
                                 title: meal.strMeal,
                                 description: meal.strMealThumb,
-                                priceTitle: "Valueless"))
+                                priceTitle: "от \(Int.random(in: 100...1000)) руб."))
                      }
                 dispatchGroup.leave()
                   }

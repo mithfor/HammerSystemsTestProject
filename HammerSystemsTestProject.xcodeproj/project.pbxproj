@@ -23,7 +23,11 @@
 		D3929C1B2B542E8800D96A54 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C1A2B542E8800D96A54 /* Banner.swift */; };
 		D3929C1D2B5431B100D96A54 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3929C1C2B5431B100D96A54 /* ViewModelFactory.swift */; };
 		D39C284C2B5546980087A858 /* MenuViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39C284B2B5546980087A858 /* MenuViewControllerLayout.swift */; };
+		D39C28502B557B590087A858 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39C284F2B557B590087A858 /* PaddingLabel.swift */; };
 		D39D1DFD2B55170D00168512 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D1DFC2B55170D00168512 /* Meal.swift */; };
+		D3A2F7942B56ACBC004E5B20 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A2F7932B56ACBC004E5B20 /* MealTableViewCell.swift */; };
+		D3A2F7962B56AF6F004E5B20 /* MealsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A2F7952B56AF6F004E5B20 /* MealsTableView.swift */; };
+		D3A2F7982B56B142004E5B20 /* MealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A2F7972B56B142004E5B20 /* MealsCollectionViewCell.swift */; };
 		D3A644BB2B54AA0300E03DBF /* SelfConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A644BA2B54AA0300E03DBF /* SelfConfigurableCell.swift */; };
 		D3A92EE82B52D0AE00827D12 /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A92EE72B52D0AE00827D12 /* MealCategory.swift */; };
 		D3DAB6F32B51536E001E7E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */; };
@@ -54,7 +58,11 @@
 		D3929C1A2B542E8800D96A54 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		D3929C1C2B5431B100D96A54 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		D39C284B2B5546980087A858 /* MenuViewControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewControllerLayout.swift; sourceTree = "<group>"; };
+		D39C284F2B557B590087A858 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D39D1DFC2B55170D00168512 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		D3A2F7932B56ACBC004E5B20 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		D3A2F7952B56AF6F004E5B20 /* MealsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableView.swift; sourceTree = "<group>"; };
+		D3A2F7972B56B142004E5B20 /* MealsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D3A644BA2B54AA0300E03DBF /* SelfConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfigurableCell.swift; sourceTree = "<group>"; };
 		D3A92EE72B52D0AE00827D12 /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
 		D3DAB6EF2B51536E001E7E07 /* HammerSystemsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammerSystemsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +201,10 @@
 				D33F51302B529F3000D16120 /* CategoryCell.swift */,
 				D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */,
 				D3A644BA2B54AA0300E03DBF /* SelfConfigurableCell.swift */,
+				D39C284F2B557B590087A858 /* PaddingLabel.swift */,
+				D3A2F7932B56ACBC004E5B20 /* MealTableViewCell.swift */,
+				D3A2F7952B56AF6F004E5B20 /* MealsTableView.swift */,
+				D3A2F7972B56B142004E5B20 /* MealsCollectionViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -274,15 +286,18 @@
 				D3929C172B53D80900D96A54 /* UIView + Extension.swift in Sources */,
 				D39D1DFD2B55170D00168512 /* Meal.swift in Sources */,
 				D33F51312B529F3000D16120 /* CategoryCell.swift in Sources */,
+				D3A2F7982B56B142004E5B20 /* MealsCollectionViewCell.swift in Sources */,
 				D3929C0D2B53C06500D96A54 /* MenuSection.swift in Sources */,
 				D33F512B2B529A7A00D16120 /* MenuPresenter.swift in Sources */,
 				D39C284C2B5546980087A858 /* MenuViewControllerLayout.swift in Sources */,
+				D3A2F7962B56AF6F004E5B20 /* MealsTableView.swift in Sources */,
 				D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */,
 				D33F512C2B529A7A00D16120 /* MenuConfigurator.swift in Sources */,
 				D33F51262B529A6D00D16120 /* MenuViewController.swift in Sources */,
 				D33F512A2B529A7A00D16120 /* MenuInteractor.swift in Sources */,
 				D3DAB70C2B5169CE001E7E07 /* UIKitConstants.swift in Sources */,
 				D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */,
+				D3A2F7942B56ACBC004E5B20 /* MealTableViewCell.swift in Sources */,
 				D3A92EE82B52D0AE00827D12 /* MealCategory.swift in Sources */,
 				D3929C1D2B5431B100D96A54 /* ViewModelFactory.swift in Sources */,
 				D3929C1B2B542E8800D96A54 /* Banner.swift in Sources */,
@@ -291,6 +306,7 @@
 				D3DAB70A2B516999001E7E07 /* Constants.swift in Sources */,
 				D3929C0F2B53C1B300D96A54 /* MealGoodViewModel.swift in Sources */,
 				D3929C0B2B53C00500D96A54 /* BannerViewModel.swift in Sources */,
+				D39C28502B557B590087A858 /* PaddingLabel.swift in Sources */,
 				D3929C142B53C81100D96A54 /* MockData.swift in Sources */,
 				D3929C092B53BCF600D96A54 /* MealCategoryViewModel.swift in Sources */,
 			);
