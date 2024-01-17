@@ -11,7 +11,7 @@ class MealsTableView: UITableView {
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-
+        initialize()
     }
 
     required init?(coder: NSCoder) {
@@ -21,5 +21,7 @@ class MealsTableView: UITableView {
 }
 
 private extension MealsTableView {
-
+    func initialize() {
+        showsVerticalScrollIndicator = false
+    }
 }

@@ -38,9 +38,13 @@
 		D3DAB70E2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB70D2B516C18001E7E07 /* MainTabBarViewControllersFactory.swift */; };
 		D3DAB7162B517D92001E7E07 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7152B517D92001E7E07 /* BannerCell.swift */; };
 		D3DAB7182B518BC0001E7E07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAB7172B518BC0001E7E07 /* APIManager.swift */; };
+		FDA72272B44A77378863EBE5 /* Pods_HammerSystemsTestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188732956CEECB9FFC7C2352 /* Pods_HammerSystemsTestProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08D24B33C9833967166DB740 /* Pods-HammerSystemsTestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HammerSystemsTestProject.debug.xcconfig"; path = "Target Support Files/Pods-HammerSystemsTestProject/Pods-HammerSystemsTestProject.debug.xcconfig"; sourceTree = "<group>"; };
+		188732956CEECB9FFC7C2352 /* Pods_HammerSystemsTestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HammerSystemsTestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9143B222ADE93160D1CA246B /* Pods-HammerSystemsTestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HammerSystemsTestProject.release.xcconfig"; path = "Target Support Files/Pods-HammerSystemsTestProject/Pods-HammerSystemsTestProject.release.xcconfig"; sourceTree = "<group>"; };
 		D33F51252B529A6D00D16120 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D33F51272B529A7A00D16120 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
 		D33F51282B529A7A00D16120 /* MenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfigurator.swift; sourceTree = "<group>"; };
@@ -81,12 +85,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA72272B44A77378863EBE5 /* Pods_HammerSystemsTestProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58BD2F5E44AB92B109D4E8F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				08D24B33C9833967166DB740 /* Pods-HammerSystemsTestProject.debug.xcconfig */,
+				9143B222ADE93160D1CA246B /* Pods-HammerSystemsTestProject.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C15039F804B780E733DD21E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				188732956CEECB9FFC7C2352 /* Pods_HammerSystemsTestProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D33F512D2B529A9C00D16120 /* MenuScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +166,8 @@
 			children = (
 				D3DAB6F12B51536E001E7E07 /* HammerSystemsTestProject */,
 				D3DAB6F02B51536E001E7E07 /* Products */,
+				58BD2F5E44AB92B109D4E8F2 /* Pods */,
+				C15039F804B780E733DD21E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,7 +189,6 @@
 				D3A92EE62B52D09B00827D12 /* Models */,
 				D3DAB7102B517723001E7E07 /* CustomViews */,
 				D3DAB6F22B51536E001E7E07 /* AppDelegate.swift */,
-				D3DAB70F2B516C4F001E7E07 /* MainTabBar */,
 				D3DAB6FB2B515370001E7E07 /* Assets.xcassets */,
 				D3DAB6FD2B515370001E7E07 /* LaunchScreen.storyboard */,
 				D3DAB7002B515370001E7E07 /* Info.plist */,
@@ -194,6 +218,7 @@
 		D3DAB7102B517723001E7E07 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				D3DAB70F2B516C4F001E7E07 /* MainTabBar */,
 				D3DAB7152B517D92001E7E07 /* BannerCell.swift */,
 				D33F51302B529F3000D16120 /* CategoryCell.swift */,
 				D3929C182B53EB4100D96A54 /* MealGoodsCell.swift */,
@@ -213,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3DAB7032B515370001E7E07 /* Build configuration list for PBXNativeTarget "HammerSystemsTestProject" */;
 			buildPhases = (
+				5DE5B2A331D0F4DDED599578 /* [CP] Check Pods Manifest.lock */,
 				D3DAB6EB2B51536E001E7E07 /* Sources */,
 				D3DAB6EC2B51536E001E7E07 /* Frameworks */,
 				D3DAB6ED2B51536E001E7E07 /* Resources */,
+				CE47C8B8ADA9669EC6E7A9E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,6 +297,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DE5B2A331D0F4DDED599578 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HammerSystemsTestProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE47C8B8ADA9669EC6E7A9E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HammerSystemsTestProject/Pods-HammerSystemsTestProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HammerSystemsTestProject/Pods-HammerSystemsTestProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HammerSystemsTestProject/Pods-HammerSystemsTestProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3DAB6EB2B51536E001E7E07 /* Sources */ = {
@@ -438,6 +507,7 @@
 		};
 		D3DAB7042B515370001E7E07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08D24B33C9833967166DB740 /* Pods-HammerSystemsTestProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,6 +537,7 @@
 		};
 		D3DAB7052B515370001E7E07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9143B222ADE93160D1CA246B /* Pods-HammerSystemsTestProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

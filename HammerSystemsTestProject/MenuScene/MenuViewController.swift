@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 typealias BannerViewModels = [BannerViewModel]
 typealias MealCategoryViewModels = [MealCategoryViewModel]
@@ -28,9 +29,10 @@ protocol MenuViewControllerOutput {
 }
 
 //MARK: - MenuViewController
-class MenuViewController: UIViewController {
+final class MenuViewController: UIViewController {
 
     var output: MenuViewControllerOutput?
+    let dropDown = DropDown()
 
     // MARK: - Private vars
 
@@ -96,6 +98,7 @@ fileprivate extension UICollectionView {
 }
 private extension MenuViewController {
     func setupView() {
+        setupDropDown()
         view.backgroundColor = UIConstants.Colors.mainBackground
         view.addSubview(collectionView)
         collectionView.pinToEdges(of: view)
@@ -110,7 +113,7 @@ private extension MenuViewController {
         setupDelegates()
     }
 
-    private func setupDiffableDatasource() {
+    func setupDiffableDatasource() {
         collectionView.dataSource = diffableDataSource
 
         reloadData()
@@ -120,49 +123,56 @@ private extension MenuViewController {
         collectionView.delegate = self
     }
 
+    func setupDropDown() {
+        dropDown.dataSource = ["Moscow", "Penza", "Asuncion"]
+        dropDown.anchorView = collectionView
+        dropDown.show()
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
+            guard let _ = self else { return }
+//            sender.setTitle(item, for: .normal) //9
+          }
+    }
+
     func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<AppSection, AnyHashable>()
-//
+
         snapshot.appendSections(AppSection.allCases)
         snapshot.appendItems(self.bannerViewModels, toSection: AppSection.banners)
         snapshot.appendItems(self.categoryViewModels, toSection: AppSection.categories)
         snapshot.appendItems(self.mealViewModels, toSection: AppSection.mealgoods)
-//        AppSection.allCases.forEach {
-//            reloadData(in: $0)
+
+        self.diffableDataSource.apply(snapshot, animatingDifferences: true)
+    }
+
+//    func reloadData(in section: AppSection) {
+//        var snapshot = diffableDataSource.snapshot()
+//
+//        switch section {
+//
+//        case .banners:
+//            if snapshot.itemIdentifiers(inSection: .banners).isEmpty {
+//                snapshot.appendItems(self.bannerViewModels, toSection: .banners)
+//            } else {
+//                snapshot.reloadItems(self.bannerViewModels)
+//            }
+//            break
+//        case .categories:
+//
+//            if snapshot.itemIdentifiers(inSection: .categories).isEmpty {
+//                snapshot.appendItems(self.categoryViewModels, toSection: .categories)
+//            } else {
+//                snapshot.reloadItems(self.categoryViewModels)
+//            }
+//        case .mealgoods:
+//            if snapshot.itemIdentifiers(inSection: .mealgoods).isEmpty {
+//                snapshot.appendItems(self.mealViewModels, toSection: .mealgoods)
+//            } else {
+//                snapshot.reloadItems(self.mealViewModels)
+//            }
 //        }
-
-        self.diffableDataSource.apply(snapshot, animatingDifferences: true)
-    }
-
-    func reloadData(in section: AppSection) {
-        var snapshot = diffableDataSource.snapshot()
-
-        switch section {
-
-        case .banners:
-            if snapshot.itemIdentifiers(inSection: .banners).isEmpty {
-                snapshot.appendItems(self.bannerViewModels, toSection: .banners)
-            } else {
-                snapshot.reloadItems(self.bannerViewModels)
-            }
-            break
-        case .categories:
-
-            if snapshot.itemIdentifiers(inSection: .categories).isEmpty {
-                snapshot.appendItems(self.categoryViewModels, toSection: .categories)
-            } else {
-                snapshot.reloadItems(self.categoryViewModels)
-            }
-        case .mealgoods:
-            if snapshot.itemIdentifiers(inSection: .mealgoods).isEmpty {
-                snapshot.appendItems(self.mealViewModels, toSection: .mealgoods)
-            } else {
-                snapshot.reloadItems(self.mealViewModels)
-            }
-        }
-
-        self.diffableDataSource.apply(snapshot, animatingDifferences: true)
-    }
+//
+//        self.diffableDataSource.apply(snapshot, animatingDifferences: true)
+//    }
 
     func hideBannersSection() {
         if !isHiddenBannersSection {
@@ -240,7 +250,7 @@ extension MenuViewController: UICollectionViewDelegate {
                     self?.currentCategory = cell.label.text ?? ""
                     self?.output?.fetchMealGoods(by: category)
 
-//                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
                 }
             }
 

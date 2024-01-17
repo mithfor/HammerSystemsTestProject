@@ -49,11 +49,6 @@ class CategoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//
-//        self.label.text = ""
-//    }
 }
 
 // MARK: - Private methods
