@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 // MARK: - MealGoodsCell
 class MealGoodsCell: UICollectionViewListCell {
@@ -120,22 +119,4 @@ extension MealGoodsCell: SelfConfigurableCell {
     }
 }
 
-// MARK: - Previews
-struct MealGoodsCellContenViewPreviews: PreviewProvider {
-    struct MealGoodsCellContainer: UIViewRepresentable {
-        func makeUIView(context: Context) -> some UIView {
-            MealGoodsCell()
-        }
-        func updateUIView(_ uiView: UIViewType, context: Context) {}
-    }
-
-    static var previews: some View {
-        MealGoodsCellContainer().padding(.init(
-            top: 100,
-            leading: 16,
-            bottom: UIScreen.main.bounds.height - 300,
-            trailing: UIScreen.main.bounds.width - 166
-        ))
-    }
-}
 

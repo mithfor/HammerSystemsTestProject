@@ -60,8 +60,8 @@ extension MenuViewController {
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
-                widthDimension: .estimated(0),
-                heightDimension: .estimated(0)),
+                widthDimension: .estimated(1),
+                heightDimension: .estimated(1)),
             subitems: [item])
 
         let section = createLayoutSection(
@@ -92,11 +92,6 @@ extension MenuViewController {
     }
 
     func createMealGoodsSection(with environment : NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
-//
-//        let listConfig = UICollectionLayoutListConfiguration(appearance: .plain)
-//        let section = NSCollectionLayoutSection.list(using: listConfig, layoutEnvironment: environment)
-//
-//        section.contentInsets.top = 20
 
         let item = NSCollectionLayoutItem(
             layoutSize: .init(widthDimension: .fractionalWidth(1),
@@ -106,7 +101,7 @@ extension MenuViewController {
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
                 widthDimension: .estimated(UIConstants.MealGoodsSection.MealGoods.width),
-                heightDimension: .fractionalHeight(0.66)),
+                heightDimension: .fractionalHeight(0.8)),
             subitems: [item])
 
         let section = createLayoutSection(
@@ -114,7 +109,7 @@ extension MenuViewController {
             behavior: .groupPagingCentered,
             interGroupSpacing: UIConstants.MealGoodsSection.interSpacing)
 
-        section.contentInsets.top = 20
+        section.contentInsets.top = 8
 
         return section
     }

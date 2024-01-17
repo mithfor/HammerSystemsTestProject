@@ -62,10 +62,10 @@
             filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "MenuViewController"
-            landmarkType = "21">
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "collectionView(_:didDeselectItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "29B3B221-EE4F-40E7-AE0E-1A3489ADE1BC"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HammerSystemsTestProject/CustomViews/CategoryCell.swift"
@@ -136,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "31156068-7D19-4B5E-9C35-C538D9B49493"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HammerSystemsTestProject/CustomViews/CategoryCell.swift"
@@ -151,96 +151,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5CB8555A-490B-47C8-880A-18FD26B96EBD"
-            shouldBeEnabled = "No"
+            uuid = "C876F6EA-FD57-4980-A235-6E6432A3AF34"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "removeBannerSection()"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "reloadData(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BC2B419B-8E04-4036-AA2F-031CF1BE8921"
-            shouldBeEnabled = "No"
+            uuid = "B6157151-269D-4709-BFE5-91BC7E6712D1"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
-            landmarkName = "removeBannerSection()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BC2B419B-8E04-4036-AA2F-031CF1BE8921 - 5a45019c26b625cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HammerSystemsTestProject.MenuViewController.removeBannerSection() -&gt; ()"
-                  moduleName = "HammerSystemsTestProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "263"
-                  endingLineNumber = "263"
-                  offsetFromSymbolStart = "217">
-               </Location>
-               <Location
-                  uuid = "BC2B419B-8E04-4036-AA2F-031CF1BE8921 - 5a45019c26b625cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HammerSystemsTestProject.MenuViewController.removeBannerSection() -&gt; ()"
-                  moduleName = "HammerSystemsTestProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/devoronin/Developer/TestProjects/HammerSystemsTestProject/HammerSystemsTestProject/MenuScene/MenuViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "263"
-                  endingLineNumber = "263"
-                  offsetFromSymbolStart = "412">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "359F4B02-EC9D-428A-A0AB-B46063D41B0B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/CustomViews/MealsCollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "reloadData(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA45E793-DD52-471C-8681-D8A307EBC592"
-            shouldBeEnabled = "No"
+            uuid = "77FE250B-BF5C-4E52-A0A1-144AB03974E7"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HammerSystemsTestProject/MenuScene/MenuViewControllerLayout.swift"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "createMealGoodsSection(with:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "reloadData(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8851DD71-06BC-476E-9511-DC394B431DE2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "reloadData(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CDED5448-7710-4958-9501-CF5610C06959"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0A97D1A-D049-4357-AC11-0A8EBA450CA7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HammerSystemsTestProject/MenuScene/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "collectionView(_:didDeselectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

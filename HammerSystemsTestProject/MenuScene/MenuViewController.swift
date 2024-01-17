@@ -56,7 +56,6 @@ class MenuViewController: UIViewController {
         } else if let object = object as? MealCategoryViewModel {
             return self.makeCategoryCell(with: object, for: indexPath)
         } else if let object = object as? MealGoodViewModel {
-//            return self.makeGoodsCell(with: object, for: indexPath)
             return self.makeMealsCell(with: object, for: indexPath)
         }
         return nil
@@ -71,7 +70,7 @@ class MenuViewController: UIViewController {
     ]
     private var categoryViewModels: MealCategoryViewModels = []
     private var mealViewModels: MealGoodViewModels = []
-    private var currentCategory: String?
+    private var currentCategory: String = "Beef"
     var isHiddenBannersSection: Bool = false
 
     // MARK: - lifecycle
@@ -79,10 +78,10 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         initialize()
         MenuConfigurator.shared.configure(viewController: self)
-        
+
         output?.fetchBanners()
         output?.fetchCategories()
-        output?.fetchMealGoods(by: currentCategory ?? "Beef")
+        output?.fetchMealGoods(by: currentCategory)
     }
 }
 
@@ -92,7 +91,6 @@ fileprivate extension UICollectionView {
     func registerCells() {
         self.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         self.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
-//        self.register(MealGoodsCell.self, forCellWithReuseIdentifier: MealGoodsCell.identifier)
         self.register(MealsCollectionViewCell.self, forCellWithReuseIdentifier: MealsCollectionViewCell.identifier)
     }
 }
@@ -122,9 +120,61 @@ private extension MenuViewController {
         collectionView.delegate = self
     }
 
+    func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot<AppSection, AnyHashable>()
+//
+        snapshot.appendSections(AppSection.allCases)
+        snapshot.appendItems(self.bannerViewModels, toSection: AppSection.banners)
+        snapshot.appendItems(self.categoryViewModels, toSection: AppSection.categories)
+        snapshot.appendItems(self.mealViewModels, toSection: AppSection.mealgoods)
+//        AppSection.allCases.forEach {
+//            reloadData(in: $0)
+//        }
+
+        self.diffableDataSource.apply(snapshot, animatingDifferences: true)
+    }
+
+    func reloadData(in section: AppSection) {
+        var snapshot = diffableDataSource.snapshot()
+
+        switch section {
+
+        case .banners:
+            if snapshot.itemIdentifiers(inSection: .banners).isEmpty {
+                snapshot.appendItems(self.bannerViewModels, toSection: .banners)
+            } else {
+                snapshot.reloadItems(self.bannerViewModels)
+            }
+            break
+        case .categories:
+
+            if snapshot.itemIdentifiers(inSection: .categories).isEmpty {
+                snapshot.appendItems(self.categoryViewModels, toSection: .categories)
+            } else {
+                snapshot.reloadItems(self.categoryViewModels)
+            }
+        case .mealgoods:
+            if snapshot.itemIdentifiers(inSection: .mealgoods).isEmpty {
+                snapshot.appendItems(self.mealViewModels, toSection: .mealgoods)
+            } else {
+                snapshot.reloadItems(self.mealViewModels)
+            }
+        }
+
+        self.diffableDataSource.apply(snapshot, animatingDifferences: true)
+    }
+
+    func hideBannersSection() {
+        if !isHiddenBannersSection {
+            isHiddenBannersSection = true
+            collectionView.setCollectionViewLayout(createLayout(), animated: true)
+        }
+    }
+
 
 // MARK: - Make Cells
     func makeBannerCell(with viewModel: BannerViewModel, for indexPath: IndexPath) -> BannerCell {
+
             if let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BannerCell.identifier,
                 for: indexPath) as? BannerCell {
@@ -174,36 +224,28 @@ private extension MenuViewController {
 
 }
 
-// MARK: - UIScrollViewDelegate
-extension MenuViewController: UIScrollViewDelegate {
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        if !isHiddenBannersSection {
-//            isHiddenBannersSection = true
-//            collectionView.setCollectionViewLayout(createLayout(), animated: true)
-//        }
-//    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension MenuViewController: UICollectionViewDelegate {
-
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         switch AppSection.allCases[indexPath.section] {
             
         case .banners:
-
-//            removeBannerSection()
+//            hideBannersSection()
             break
         case .categories:
             if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
                 cell.select { [weak self] category in
-                    self?.currentCategory = category
-                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+                    self?.currentCategory = cell.label.text ?? ""
                     self?.output?.fetchMealGoods(by: category)
+
+//                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
                 }
             }
+
+            hideBannersSection()
+
         case .mealgoods:
             break
         }
@@ -212,37 +254,15 @@ extension MenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
             cell.select { [weak self] category in
-                self?.output?.fetchMealGoods(by: category)
+                self?.currentCategory = cell.label.text ?? ""
+//                self?.output?.fetchMealGoods(by: category)
             }
-
-//            self.removeBannerSection(self.bannerViewModels)
         }
     }
 }
 
 // MARK: - MenuViewControllerInput
 extension MenuViewController: MenuViewControllerInput {
-
-    func reloadData() {
-        var snapshot = NSDiffableDataSourceSnapshot<AppSection, AnyHashable>()
-
-        snapshot.appendSections([.banners, .categories, .mealgoods])
-        snapshot.appendItems(self.bannerViewModels, toSection: AppSection.banners)
-        snapshot.appendItems(self.categoryViewModels, toSection: AppSection.categories)
-        snapshot.appendItems(self.mealViewModels, toSection: AppSection.mealgoods)
-
-        self.diffableDataSource.applySnapshotUsingReloadData(snapshot)
-    }
-
-    func displayCategories(_ categories: MealCategoryViewModels) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.categoryViewModels = categories
-
-            self.reloadData()
-            self.collectionView.selectItem(at: IndexPath(item: 0, section: AppSection.categories.rawValue), animated: true, scrollPosition: .centeredHorizontally)
-        }
-    }
 
     func displayBanners(_ banners: BannerViewModels) {
         print(#function)
@@ -256,6 +276,17 @@ extension MenuViewController: MenuViewControllerInput {
         }
     }
 
+    func displayCategories(_ categories: MealCategoryViewModels) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.categoryViewModels = categories
+
+            self.collectionView.selectItem(at: IndexPath(item: 0, section: AppSection.categories.rawValue), animated: true, scrollPosition: .centeredHorizontally)
+
+            self.reloadData()
+        }
+    }
+
     func displayMeals(_ meals: MealGoodViewModels) {
         let meals = meals
         DispatchQueue.main.async { [weak self] in
@@ -264,27 +295,6 @@ extension MenuViewController: MenuViewControllerInput {
 
             self.reloadData()
         }
-    }
-}
-
-private extension MenuViewController {
-    func removeBannerSection() {
-//        var currentSnapshot = self.diffableDataSource.snapshot()
-
-//        if let bannersSectionIdentifier = currentSnapshot.sectionIdentifiers.first {
-//            currentSnapshot.deleteItems([currentSnapshot.itemIdentifiers(inSection: .banners)])
-//            currentSnapshot.deleteSections([.banners])
-//        }
-
-//        self.diffableDataSource.apply(currentSnapshot, animatingDifferences: true)
-
-        if !isHiddenBannersSection {
-            isHiddenBannersSection = true
-            collectionView.setCollectionViewLayout(createLayout(), animated: true)
-        }
-
-//        collectionView.setCollectionViewLayout(createLayout(), animated: true)
-
     }
 }
 

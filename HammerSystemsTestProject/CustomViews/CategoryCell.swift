@@ -30,11 +30,11 @@ class CategoryCell: UICollectionViewCell {
             if self.isSelected {
                 self.label.backgroundColor = UIColor(red: 0.992, green: 0.227, blue: 0.412, alpha: 0.2)
                 self.label.layer.borderWidth = 0
-                completionData(self.label.text ?? "Seafood")
+                completionData(self.label.text ?? "")
             } else {
                 self.label.backgroundColor = .clear
                 self.label.layer.borderWidth = 1
-               completionData(self.label.text ?? "Vegan")
+                completionData(self.label.text ?? "")
             }
         }
     }
@@ -49,11 +49,11 @@ class CategoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        self.label.text = "Beef"
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//
+//        self.label.text = ""
+//    }
 }
 
 // MARK: - Private methods

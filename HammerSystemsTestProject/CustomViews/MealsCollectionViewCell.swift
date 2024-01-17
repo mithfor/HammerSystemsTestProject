@@ -11,8 +11,8 @@ class  MealsCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "MealsCollectionViewCell"
 
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
+    private lazy var tableView: MealsTableView = {
+        let tableView = MealsTableView(frame: .zero)
         return tableView
     }()
 
@@ -20,6 +20,8 @@ class  MealsCollectionViewCell: UICollectionViewCell {
 
     func configure(viewModels: MealGoodViewModels) {
         self.viewModels = viewModels
+        tableView.reloadData()
+        print(viewModels.count)
     }
 
     // MARK: - Init
@@ -35,13 +37,19 @@ class  MealsCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        viewModels = []
+    }
 }
 
 private extension MealsCollectionViewCell {
 
     func initialize() {
         contentView.addSubview(tableView)
-        tableView.backgroundColor = .cyan
+        tableView.backgroundColor = .clear
         tableView.pinToEdges(of: self)
     }
 

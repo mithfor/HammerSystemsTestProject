@@ -31,15 +31,12 @@ class MealTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.accessoryType = .none
-    }
-
     // MARK: - Private properties
     private let mealImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         return imageView
     }()
 
@@ -80,7 +77,6 @@ class MealTableViewCell: UITableViewCell {
 // MARK: - Private methods
 private extension MealTableViewCell {
     func initialize() {
-        translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(mealImageView)
         contentView.addSubview(titleLabel)
@@ -91,7 +87,6 @@ private extension MealTableViewCell {
             mealImageView.heightAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.height),
             mealImageView.widthAnchor.constraint(equalToConstant: UIConstants.MealGoodsSection.MealGoods.ImageView.width),
             mealImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            mealImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             mealImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
 
 

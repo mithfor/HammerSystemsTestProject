@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BannerViewModel: ViewModel {
+class BannerViewModel: ViewModel, Identifiable {
 
     var imageName: String
 

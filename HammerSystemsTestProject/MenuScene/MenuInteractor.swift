@@ -22,14 +22,15 @@ class MenuInteractor {
 extension MenuInteractor: MenuInteractorInput {
     func fetchMealGoods(by category: String) {
         // TODO: - Extract to worker!!!
-
-        NetworkManager.shared.loadCategoryMeals(for: category) { result in
-                  switch result {
-                  case .failure(let error):
-                      print("Error fetching meals \(error)")
-                  case .success(let response):
-                      self.output?.presentMeals(response.meals)                  }
-              }
+//        if !category.isEmpty {
+            NetworkManager.shared.loadCategoryMeals(for: category) { result in
+                switch result {
+                case .failure(let error):
+                    print("Error fetching meals \(error)")
+                case .success(let response):
+                    self.output?.presentMeals(response.meals)                  }
+            }
+//        }
     }
 
     func fetchCategories() {
