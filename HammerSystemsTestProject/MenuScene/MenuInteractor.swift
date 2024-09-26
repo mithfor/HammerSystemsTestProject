@@ -15,14 +15,28 @@ protocol MenuInteractorOutput {
     func presentMeals(_ meals: Meals)
 }
 
+protocol InteracorWorker {
+
+}
+
+class InitialWorker {
+//    func init(interactor: ) {
+//
+//    }
+}
+
 class MenuInteractor {
     var output: MenuInteractorOutput?
 }
 
 extension MenuInteractor: MenuInteractorInput {
+    func fetchInitial() {
+        let worker = InitialWorker()
+
+    }
+
     func fetchMealGoods(by category: String) {
         // TODO: - Extract to worker!!!
-//        if !category.isEmpty {
             NetworkManager.shared.loadCategoryMeals(for: category) { result in
                 switch result {
                 case .failure(let error):
@@ -30,7 +44,6 @@ extension MenuInteractor: MenuInteractorInput {
                 case .success(let response):
                     self.output?.presentMeals(response.meals)                  }
             }
-//        }
     }
 
     func fetchCategories() {
