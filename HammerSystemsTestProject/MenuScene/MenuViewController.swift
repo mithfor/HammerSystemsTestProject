@@ -26,6 +26,7 @@ protocol MenuViewControllerOutput {
     func fetchBanners()
     func fetchCategories()
     func fetchMealGoods(by category: String)
+    func fetchInitial()
 }
 
 //MARK: - MenuViewController
@@ -250,7 +251,7 @@ extension MenuViewController: UICollectionViewDelegate {
                     self?.currentCategory = cell.label.text ?? ""
                     self?.output?.fetchMealGoods(by: category)
 
-                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .right)
                 }
             }
 
